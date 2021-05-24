@@ -1,0 +1,106 @@
+/* Getting rid of HTML defaults */
+*{ margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Styling the body of our document  */
+body
+{
+	color: white;
+	min-height: 100vh;
+	font-family: 'Poppins', sans-serif;
+    background-image: linear-gradient(120deg, #5f57d1, #c065c0);
+}
+
+/* STYLYING INPUT ELEMENT AND THE BUTTON */
+header
+{
+	font-size: 2rem;
+}
+
+header,form
+{
+    display: flex;
+    min-height: 15vh;
+    align-items: center; 
+	justify-content: center;   
+}
+
+form input, form button
+{
+    border-radius: 5px;
+	
+    border: none;
+    padding: 0.4rem;
+    font-size: 2rem;
+    background: white;
+}
+
+form button
+{
+    color: #c065c0;
+    cursor: pointer;
+	padding: 1.55rem;
+	margin-left: 1rem;
+    background: white;
+    transition: all 0.3s ease;
+}
+
+form button:hover
+{
+    color: white;
+    background: red;
+}
+
+.contact_container
+{
+    border-radius: 15px;
+    background-color: rgb(223, 223, 223);
+    display: grid;
+    align-items: center; 
+	justify-content: center;
+    width: 35rem;
+    height: 25rem;
+    margin: 0 auto;
+    color: rgb(53, 53, 53);
+}
+
+.contact_container h2
+{
+    text-align: center;
+}
+
+.contact_container img
+{
+    border-radius: 50%;
+    width: 7rem;
+    margin: auto;
+    margin-top: -4.5rem;
+}
+
+.contact_container ul
+{
+    list-style: none;
+}
+
+.contact_element
+{
+    margin-top: -5rem;
+    display: grid;
+    width: auto;
+    text-align: center;
+}
+
+.contact_element h3
+{
+    align-items: left; 
+	justify-content: left;
+    margin: auto;
+}
+
+.contact_element button
+{
+    align-items: right; 
+	justify-content: right;
+    margin: auto;
+    margin-left: 2rem;
+    padding-top: 0.7rem;
+}
