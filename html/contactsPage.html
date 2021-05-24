@@ -1,0 +1,48 @@
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">		
+		<link rel="stylesheet" href="style.css">
+		
+		<!-- Tab Identifier -->
+		<title>Simple Contacts</title>
+	</head>
+
+	<body>
+		<!-- Project Name -->
+		<header>
+			<h1>Simple Contacts</h1>
+		</header>
+		
+		<!-- Search bar and Add Contact button -->
+		<form>
+			<input type="text" placeholder=" Search For a Contact ..." class="searchbar" />
+			<button class="add_contact_button" type="submit"></button>
+		</form>
+		
+		<!-- Container for contact information -->
+		<div class="contact_container">
+			<h2 class="contact_name">Contact Name</h2>
+			<br>
+			<img class="contact_image" src="images/default-user-image.png" alt="">
+			
+			<div class="contact_element">
+				<h3 class="contact_phone_number">Contact Number<button class="edit_phone_number_button" type="submit"></button></h3>
+			</div>
+			
+			<div class="contact_element">
+				<h3 class="contact_email">Contact Email<button class="edit_email_button" type="submit"></button></h3>
+			</div>
+
+			<div class="contact_element">
+				<h3 class="contact_address">Contact Address<button class="edit_email_button" type="submit"></button></h3>
+			</div>
+
+		</div>
+		
+		<!-- Javascript Logic -->
+		<script src="app.js"></script>
+	</body>
+</html>
