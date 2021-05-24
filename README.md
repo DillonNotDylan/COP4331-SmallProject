@@ -6,15 +6,15 @@ The website itself is hosted on Ocean Digital.
 
 The structure of this website is as follows:
 - /var/www/html
+  - html
+    - contactsPage.html
   - js
-    - code.js
-    - md5.js
+    - app.js
   - css
-    - style.css
+    - contactPageStyle.css
   - images
-    - background.png
+    - default-user-image
   - LAMPAPI
     - Login.php
-    - AddColor.php
-    - SearchColors.php
+    - sarchContacts.php
     
