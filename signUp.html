@@ -22,25 +22,26 @@
 	</script>
 
 	<body>
-	<div class = "innerStuff">
-	
-	<h3 style = "text-align:center; color:#ffffff"> Please enter your desired login information<h3> 
-	
-		<form>
-		<h4>Username:</h4> <br>
-		<input type = "text" placeholder = "UserName" id = "user" required> </input><br>
-		<h4>Password:</h4> <br>
-		<input type = "text" placeholder = "PassWord" id = "pass" required> </input><br>
-		<h4>Confirm Password:</h4> <br>
-		<input type = "text" placeholder = "Re-enter PassWord" id = "repass" required> </input><br>
+		<div class = "signUpDiv">
+			<h1 class="title"> Please enter your desired login information<h3> 
 		
-		<br>
-		<input type = "submit"  id = "sButt" onclick = "printOut()" style = "margin-left:30%">
-	
-		</form>
-	</div>
+			<form class="signUpForm">
+				<h4>Username:<input type = "text" placeholder = " UserName" id = "user" required> </input></h4>
+				<br>
+				
+				<h4>Password:<input type = "password" placeholder = " PassWord" id = "pass" required> </input></h4> 
+				<br>
+				
+				<h4>Confirm Password:<input type = "password" placeholder = " Re-enter PassWord" id = "repass" required> </input></h4> 
+				<br>
+
+				<input type = "submit" class="signUpButton" onclick = "printOut()">
+			</form>
+
+			<div class="signUp-link">
+				<p>Need an Account? Click <a href = "signUp.html"> here </a></p>
+			</div>
+
+		</div>		
 	</body>
-	
-
-
 </html>
