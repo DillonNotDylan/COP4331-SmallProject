@@ -5,6 +5,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">		
 		<link rel="stylesheet" href="../css/contactPageStyle.css">
+		<script type="text/javascript" src="../js/contactsPage.js"></script>
+
+		<!-- Logic to make sure the user is still signed in -->
+		<script type="text/javascript">
+			document.addEventListener('DOMContentLoaded', function() 
+			{
+				readCookie();
+			}, false);
+		</script>
 		
 		<!-- Tab Identifier -->
 		<title>Simple Contacts</title>
@@ -15,6 +24,12 @@
 		<header>
 			<h1>Simple Contacts</h1>
 		</header>
+
+		<!-- Log Out Button -->
+		<div id="loggedInDiv">
+			<span id="userName"></span><br />
+			<button type="button" id="logoutButton" class="buttons" onclick="doLogout();"> Log Out </button>
+		</div>
 		
 		<!-- Search bar and Add Contact button -->
 		<form>
