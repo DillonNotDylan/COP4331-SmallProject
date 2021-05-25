@@ -1,0 +1,46 @@
+<html>
+	<head>
+	<title> Account Sign Up</title>
+	<script type="text/javascript" src="js/register.js"></script>
+	<link href="css/signUp.css" rel="stylesheet">
+	</head>
+	
+	<script>
+		function printOut()
+		{
+			var a, b;
+			a = document.getElementById("user").value;
+			b = document.getElementById("pass").value;
+			b = document.getElementById("repass").value;
+			
+			// check if password was typed correctly
+			if (b != c)
+				alert("Error: Passwords don't match");
+			else
+				alert("nice youre slick");
+		}
+	</script>
+
+	<body>
+	<div class = "innerStuff">
+	
+	<h3 style = "text-align:center; color:#ffffff"> Please enter your desired login information<h3> 
+	
+		<form>
+		<h4>Username:</h4> <br>
+		<input type = "text" placeholder = "UserName" id = "user" required> </input><br>
+		<h4>Password:</h4> <br>
+		<input type = "text" placeholder = "PassWord" id = "pass" required> </input><br>
+		<h4>Confirm Password:</h4> <br>
+		<input type = "text" placeholder = "Re-enter PassWord" id = "repass" required> </input><br>
+		
+		<br>
+		<input type = "submit"  id = "sButt" onclick = "printOut()" style = "margin-left:30%">
+	
+		</form>
+	</div>
+	</body>
+	
+
+
+</html>
