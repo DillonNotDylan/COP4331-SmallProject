@@ -1,0 +1,40 @@
+body
+{
+	position: absolute;
+	top: 12%;
+	left: 25%;
+	right: 25%;
+	padding-left: 2vw;
+	height: 30vmax;
+	background-color:  #c1c1bd;
+}
+
+h4
+{
+	text-align:left;
+	font-family: "georgia";
+}
+
+input[type = "text"]
+{
+	padding-right: 7%;
+	border:5px solid grey;
+	position:absolute;
+	left:45%;
+	text-align:center;
+}
+
+.innerStuff{
+	position: relative;
+	left: 5vw;
+	right: 5vw;
+	top: 5%;
+	background-color:rgba(65, 109, 230, 0.568);
+	width:30vmax;
+	height: 30vmax;
+	border-radius: 100px;
+	padding: inherit;
+	padding-top: 5%;
+	border: 2px solid papayawhip;
+	box-shadow: -5px -5px 30px 25px #ccc;
+}
