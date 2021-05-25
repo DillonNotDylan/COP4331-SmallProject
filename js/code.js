@@ -1,4 +1,4 @@
-var urlBase = 'http://COP4331-5.com/LAMPAPI';
+var urlBase = 'http://thebest-group28.xyz/LAMPAPI';
 var extension = 'php';
 
 var userId = 0;
@@ -15,7 +15,7 @@ function doLogin()
 	var password = document.getElementById("loginPassword").value;
 //	var hash = md5( password );
 	
-	document.getElementById("loginResult").innerHTML = "";
+//	document.getElementById("loginResult").innerHTML = "";
 
 //	var jsonPayload = '{"login" : "' + login + '", "password" : "' + hash + '"}';
 	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '"}';
@@ -44,7 +44,7 @@ function doLogin()
 
 				saveCookie();
 	
-				window.location.href = "color.html";
+				window.location.href = "contactsPage.html";
 				
 			}
 		};
