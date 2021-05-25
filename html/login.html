@@ -1,0 +1,32 @@
+<html>
+    <head>
+	<title>Contact Manager V37.2</title>
+	<script type="text/javascript" src="js/md5.js"></script>
+	<script type="text/javascript" src="js/code.js"></script>
+        <link href="css/styles.css" rel="stylesheet">	
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    </head>
+
+    <body>
+        <h1 id="title">Welcome To Your Contact Manager!</h1>
+        
+        <div id="loginDiv">
+	    <span id="inner-title">PLEASE LOG IN</span>
+
+	    <input type="text" id="loginName" placeholder="Username" required /><br />
+
+	    <input type="password" id="loginPassword" required="required" placeholder="Password"/><br />
+
+  	    <button type="button" id="loginButton" class="buttons" onclick="doLogin();"> Do It </button>
+
+		<a style="margin-left: 35%" id = "accCreate">
+			Need an Account? Click
+			<a id = "accCreate" style = "font-style: italic" color:ffffff href = "signUp.html"> here </a>
+		</a>
+
+
+	    <span id="loginResult"></span>
+        </div>
+    </body>
+</html>
+
