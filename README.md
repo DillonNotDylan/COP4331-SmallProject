@@ -8,12 +8,16 @@ The structure of this website is as follows:
 - /var/www/html
   - html
     - contactsPage.html
+    - signUp.html
+    - login.html
   - js
     - app.js
   - css
     - contactPageStyle.css
+    - loginStyles.css
+    - signUp.css
   - images
-    - default-user-image
+    - default-user-image.png
   - LAMPAPI
     - Login.php
     - sarchContacts.php
