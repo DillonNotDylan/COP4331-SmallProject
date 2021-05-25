@@ -1,40 +1,77 @@
+/* Getting rid of HTML defaults */
+*{ margin: 0; padding: 0; box-sizing: border-box; }
+
 body
 {
-	position: absolute;
-	top: 12%;
-	left: 25%;
-	right: 25%;
-	padding-left: 2vw;
-	height: 30vmax;
 	background-color:  #c1c1bd;
 }
 
-h4
+.signUpDiv
 {
-	text-align:left;
-	font-family: "georgia";
-}
-
-input[type = "text"]
-{
-	padding-right: 7%;
-	border:5px solid grey;
-	position:absolute;
-	left:45%;
-	text-align:center;
-}
-
-.innerStuff{
-	position: relative;
-	left: 5vw;
-	right: 5vw;
-	top: 5%;
+	display: grid;
+	align-items: center; 
+	justify-content: center; 
 	background-color:rgba(65, 109, 230, 0.568);
-	width:30vmax;
-	height: 30vmax;
 	border-radius: 100px;
-	padding: inherit;
-	padding-top: 5%;
+	margin: auto;
+	margin-top: 10rem;
+	width: 40%;
+	height: 50%;
 	border: 2px solid papayawhip;
 	box-shadow: -5px -5px 30px 25px #ccc;
+}
+
+.signUpForm
+{
+	display: inline;
+	margin-top: -2rem;
+	width: 50%;
+	font-size: 1.5rem;
+}
+
+input[type="text"] 
+{
+	display: inline;
+    float: right;
+	padding-left: 0.5rem;
+}
+
+input[type="password"] 
+{
+	display: inline;
+    float: right;
+	padding-left: 0.5rem;
+}
+
+#user, #pass, #repass
+{
+	font-size: 1.5rem;
+	border-color: #5f57d1;
+	border-radius: 15px;
+	background-color: white;
+}
+
+.signUpButton
+{
+	font-size: 1rem;
+	border-color: #5f57d1;
+	border-radius: 25px;
+	padding: 0.25rem;
+    width: 50%;
+    margin-left: 25%;
+	margin-top: 1;
+	margin-bottom: 1rem;
+}
+
+.signUpButton:hover
+{
+    background-color: #c1c1bd;
+    color: white;
+    opacity: 75%;
+}
+
+.signUp-Link
+{
+	display: grid;
+	justify-content: center;
 }
