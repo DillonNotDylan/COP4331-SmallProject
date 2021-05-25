@@ -8,19 +8,19 @@
     </head>
 
     <body>
-        <h1 class="title">Welcome To Simple Contact!</h1>
+        <h1 class="title" id="title">Welcome To Simple Contact!</h1>
         
-        <div class="loginDiv">
-		<input type="text" class="loginName"  required="required" placeholder="Username" /><br/>
+        <div class="loginDiv" id="loginDiv">
+		<input type="text" class="loginName" id="loginName" required="required" placeholder="Username" /><br/>
 
-		<input type="password" class="loginPassword" required="required" placeholder="Password"/><br/>
+		<input type="password" class="loginPassword" id="loginPassword" required="required" placeholder="Password"/><br/>
 
-		<button type="button" class="loginButton" class="buttons" onclick="doLogin();"> login </button>
+		<button type="button" class="loginButton" id="loginButton" class="buttons" onclick="doLogin();"> login </button>
 
 		<div class="signUp-link">
 			<p>Need an Account? Click <a href = "signUp.html"> here </a></p>
 		</div>
-			
+
 		<span class="loginResult"></span>
         </div>
     </body>
