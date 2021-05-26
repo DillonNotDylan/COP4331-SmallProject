@@ -13,12 +13,18 @@ body
 	align-items: center; 
 	justify-content: center; 
 	background-color: #e0e5e6;
-	border-radius: 50px;
+	border-radius: 3.5rem;
 	margin: auto;
 	margin-top: 5rem;
 	width: 400px;
 	height: 450px;
 	border: 2px solid purple;
+}
+
+.title
+{
+	padding-top: 1rem;
+	text-align: center;
 }
 
 .signUpForm
@@ -74,8 +80,9 @@ input[type="password"]
 	opacity: 75%;
 }
 
-.signUp-Link
+.login-Link
 {
 	display: grid;
 	justify-content: center;
+	margin-top: -2rem;
 }

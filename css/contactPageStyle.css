@@ -24,20 +24,42 @@ header,form
 	justify-content: center;   
 }
 
+#loggedInDiv
+{
+    display: grid;
+	justify-content: center; 
+    margin: auto;
+}
+
+#loggedInDiv button
+{
+    font-size: 1.5rem;
+	border-color: blue;
+	border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+}
+
 form input, form button
 {
     border-radius: 5px;
-	
-    border: none;
     padding: 0.4rem;
     font-size: 2rem;
     background: white;
+}
+
+form input
+{
+    border-color: blue;
+	border-radius: 0.5rem;
 }
 
 form button
 {
     color: #c065c0;
     cursor: pointer;
+    border: none;
 	padding: 1.55rem;
 	margin-left: 1rem;
     background: white;
@@ -61,6 +83,32 @@ form button:hover
     height: 25rem;
     margin: 0 auto;
     color: rgb(53, 53, 53);
+    border-radius: 3rem;
+    border: 2px solid purple;
+}
+
+@media only screen and (max-width: 1000px)
+{
+    header
+    {
+        font-size: 1.5rem;
+    }
+
+    body
+    {
+        overflow-y: hidden;
+        overflow-x: hidden;
+    }
+    
+    form input
+    {
+        width: 75%;
+    }
+
+    .contact_container
+    {
+        width: 80%;
+    }
 }
 
 .contact_container h2
