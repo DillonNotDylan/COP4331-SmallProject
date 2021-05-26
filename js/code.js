@@ -1,4 +1,4 @@
-var urlBase = 'http://thebest-group28.xyz/LAMPAPI';
+var urlBase = 'http://www.thebest-group28.xyz/LAMPAPI';
 var extension = 'php';
 
 var userId = 0;
