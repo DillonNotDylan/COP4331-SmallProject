@@ -1,26 +1,11 @@
 <html>
+	<meta charset="utf-8">
 	<head>
 	<title> Account Sign Up</title>
 	<script type="text/javascript" src="js/register.js"></script>
 	<link href="css/signUp.css" rel="stylesheet">
 	</head>
 	
-	<script>
-		function printOut()
-		{
-			var a, b;
-			a = document.getElementById("user").value;
-			b = document.getElementById("pass").value;
-			b = document.getElementById("repass").value;
-			
-			// check if password was typed correctly
-			if (b != c)
-				alert("Error: Passwords don't match");
-			else
-				alert("nice youre slick");
-		}
-	</script>
-
 	<body>
 		<div class = "signUpDiv">
 			<h1 class="title"> Sign Up <h3> 
@@ -41,9 +26,9 @@
 				<input type = "password" placeholder = " Re-enter Password" id = "repass" required> </input>
 				<br>
 
-				<button type="submit" class="signUpButton" id="signUpButton" class="buttons" onclick="printOut();"> Sign Up </button>
+				<button type="submit" class="signUpButton" id="signUpButton" class="buttons" onclick="checkValid();"> Sign Up </button>
 			</form>
-
+			<p id = "outp"></p>
 			<div class="signUp-link">
 				<p>Already have an Account? <a href = "index.html"> Login </a> </p>
 			</div>
