@@ -23,25 +23,30 @@
 
 	<body>
 		<div class = "signUpDiv">
-			<h1 class="title"> Please enter your desired login information<h3> 
+			<h1 class="title"> Sign Up <h3> 
 		
 			<form class="signUpForm">
-				<h4>Username:<input type = "text" placeholder = " UserName" id = "user" required> </input></h4>
+				<input type = "text" placeholder = " First Name" id = "first" required> </input>
 				<br>
 				
-				<h4>Password:<input type = "password" placeholder = " PassWord" id = "pass" required> </input></h4> 
-				<br>
-				
-				<h4>Confirm Password:<input type = "password" placeholder = " Re-enter PassWord" id = "repass" required> </input></h4> 
+				<input type = "text" placeholder = " Last Name" id = "last" required> </input>
 				<br>
 
-				<input type = "submit" class="signUpButton" onclick = "printOut()">
+				<input type = "text" placeholder = " Username" id = "user" required> </input>
+				<br>
+				
+				<input type = "password" placeholder = " Password" id = "pass" required> </input>
+				<br>
+				
+				<input type = "password" placeholder = " Re-enter Password" id = "repass" required> </input>
+				<br>
+
+				<button type="submit" class="signUpButton" id="signUpButton" class="buttons" onclick="printOut();"> Sign Up </button>
 			</form>
 
 			<div class="signUp-link">
-				<p>Already have an Account? Click <a href = "index.html"> here </a> to login.</p>
+				<p>Already have an Account? <a href = "index.html"> Login </a> </p>
 			</div>
-
-		</div>		
+		</div>
 	</body>
 </html>
