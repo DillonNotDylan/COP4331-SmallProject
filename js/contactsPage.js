@@ -92,10 +92,45 @@ function display_contacts(f_name, l_name, phone_number, email, address)
 	contact_container.appendChild(contact_element_1);
 	contact_container.appendChild(contact_element_2);
 	contact_container.appendChild(contact_element_3);
+}
 
-	//contact_container.appendChild(contact_phone_number);
-	//contact_container.appendChild(contact_email);
-	//contact_container.appendChild(contact_address);
+function add_contact()
+{
+	// Capture the text from the search bars to use for querying
+	var add_first_name = document.getElementById("add_first_name").value;
+	var add_last_name = document.getElementById("add_last_name").value;
+	var add_phone_number = document.getElementById("add_phone_number").value;
+	var add_email = document.getElementById("add_email").value;
+
+	// Prepare variables for the API
+	var jsonPayload = '{"first_name" : "' + add_first_name + '", "last_name" : "' + add_last_name + '", "phone_number" : "' + add_phone_number + '", "phone_number" : "' + add_email +'"}';
+	var url = urlBase + '/SearchContacts.' + extension;
+
+	// Attempt a connection to the API
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function()
+		{
+			// If we successfully connect, retrieve the information from the APIs query
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				var jsonObject = JSON.parse( xhr.responseText ); // This JSON object is the response from the API
+			
+				if(jsonObject.error[0] == "")
+				{
+					alert("Contact Added");
+				}
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("loginResult").innerHTML = err.message;
+	}
 }
 
 function doLogout()
@@ -146,4 +181,14 @@ function readCookie()
 	{
 		document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
 	}
+}
+
+function openNav() 
+{
+	  document.getElementById("myNav").style.width = "100%";
+}	
+
+function closeNav() 
+{
+	  document.getElementById("myNav").style.width = "0%";
 }
