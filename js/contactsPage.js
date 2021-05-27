@@ -12,10 +12,10 @@ function search_contacts()
 	var last_name = document.getElementById("last_name_searchbar").value;
     
 	// FOR TESTING ONLY (NOT SECURE): Display the search bar entries in the console for debugging 
-	console.log("First: " + first_name + " / Last: " + last_name);
+	console.log("UID: " + userId + " / First: " + first_name + " / Last: " + last_name);
 
 	// Prepare variables for the API
-	var jsonPayload = '{"first_name" : "' + first_name + '", "last_name" : "' + last_name + '"}';
+	var jsonPayload = '{"userId" : "' + userId + '", "first_name" : "' + first_name + '", "last_name" : "' + last_name + '"}';
 	var url = urlBase + '/SearchContacts.' + extension;
 
 	// Attempt a connection to the API
