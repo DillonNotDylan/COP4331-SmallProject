@@ -33,7 +33,7 @@ function search_contacts()
 				
 				var num_items = jsonObject.results.length;
 				
-				console.log(jsonObject);
+				console.log(jsonObject.results);
 
 				console.log("That query resulted in "+num_items+" pieces of information for that contact.");
 			}
