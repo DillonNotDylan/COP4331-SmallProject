@@ -1,6 +1,6 @@
 // insert init's here
 var userN, passO, passT;
-let url = "http:/thebest-group28.xyz/LAMPAPI/test.php"
+let url = "http:/www.thebest-group28.xyz/LAMPAPI/test.php"
 
 
 function addUser()
@@ -17,9 +17,10 @@ function addUser()
 		if (this.readyState == 4 && this.status == 200) 
 		{
 			var jsonObject = JSON.parse( xhr.responseText );
-			document.getElementById("outp").innerHTML = JSON.stringify(jsonObject);	
+			document.getElementById("outp").innerHTML = "finished";	
 		}
 	};
+	
 	xhr.send(jsonPayload);
 
 }
