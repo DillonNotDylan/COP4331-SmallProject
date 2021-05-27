@@ -113,6 +113,7 @@ header, .search_container
     width: 35rem;
     height: 25rem;
     margin: 0 auto;
+	margin-bottom: 1.5rem;
     color: rgb(53, 53, 53);
     border-radius: 3rem;
     border: 2px solid purple;
