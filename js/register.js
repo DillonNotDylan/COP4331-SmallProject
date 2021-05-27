@@ -20,7 +20,7 @@ function addUser()
 			document.getElementById("outp").innerHTML = "finished";	
 		}
 	};
-	
+
 	xhr.send(jsonPayload);
 
 }
@@ -42,14 +42,5 @@ function checkValid()
 
 	document.getElementById("outp").innerHTML = "";
 	addUser();
-
-	// add user to DB
-
-
-	// login to user with given credentials
-
-	//else addUser()
-	// sign into account?
-	// or href into signin page
 
 }
