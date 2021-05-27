@@ -7,29 +7,50 @@
 		<script type="text/javascript" src="js/contactsPage.js"></script>
 
 		<!-- Logic to make sure the user is still signed in -->
+		<!--
 		<script type="text/javascript">
 			document.addEventListener('DOMContentLoaded', function() 
 			{
 				readCookie();
 			}, false);
 		</script>
-		
+		-->
+
 		<!-- Tab Identifier -->
 		<title>Simple Contacts</title>
 	</head>
 
 	<body>
-		<!-- Project Name -->
-		<header>
-			<h1>Simple Contacts</h1>
-		</header>
-
 		<!-- Log Out Button -->
 		<div id="loggedInDiv">
 			<span id="userName"></span><br />
 			<button type="button" id="logoutButton" class="buttons" onclick="doLogout();"> Log Out </button>
 		</div>
 		
+		<!-- Project Name -->
+		<header>
+			<h1>Simple Contacts</h1>
+		</header>
+
+		<!-- The overlay -->
+		<div id="myNav" class="overlay">
+
+			<!-- Button to close the overlay navigation -->
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		
+			<!-- Overlay content -->
+			<div class="overlay-content">
+				<input id="add_first_name" type="text" placeholder=" First Name ...">
+				<input id="add_last_name" type="text" placeholder=" Last Name ...">
+				<input id="add_phone_number" type="text" placeholder=" Phone Number ...">
+				<input id="add_email" type="text" placeholder=" Address ...">
+				<button type="button" onclick="add_contact()">Submit</button>
+			</div>
+		</div>
+		
+		<!-- Use any element to open/show the overlay navigation menu -->
+		<button class="openbtn" type="button" onclick="openNav()">Add Contact</button>
+
 		<!-- Search bar and Add Contact button -->
 		<div class="search_container" id="search_container">
 			<div class="searchbars" id="searchbars">
