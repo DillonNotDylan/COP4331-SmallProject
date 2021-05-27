@@ -5,43 +5,35 @@ var userId = 0;
 var firstName = "";
 var lastName = "";
 
-function doLogin()
+function search_contacts()
 {
-	userId = 0;
-	firstName = "";
-	lastName = "";
-	
-	var login = document.getElementById("loginName").value;
-	var password = document.getElementById("loginPassword").value;
-	
-	var jsonPayload = '{"login" : "' + login + '", "password" : "' + password + '"}';
-	var url = urlBase + '/Login.' + extension;
+	// Capture the text from the search bars to use for querying
+	var first_name = document.getElementById("first_name_searchbar").value;
+	var last_name = document.getElementById("last_name_searchbar").value;
+    
+	// FOR TESTING ONLY (NOT SECURE): Display the search bar entries in the console for debugging 
+	console.log("First: " + first_name + " / Last: " + last_name);
 
+	// Prepare variables for the API
+	var jsonPayload = '{"first_name" : "' + first_name + '", "last_name" : "' + last_name + '"}';
+	var url = urlBase + '/SearchContacts.' + extension;
+
+	// Attempt a connection to the API
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try
 	{
-		xhr.onreadystatechange = function() 
+		xhr.onreadystatechange = function()
 		{
+			// If we successfully connect, retrieve the information from the APIs query
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				var jsonObject = JSON.parse( xhr.responseText );
-				userId = jsonObject.id;
-		
-				if( userId < 1 )
-				{		
-					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
-					return;
-				}
-		
-				firstName = jsonObject.firstName;
-				lastName = jsonObject.lastName;
-
-				saveCookie();
-	
-				window.location.href = "contactsPage.html";
+				var jsonObject = JSON.parse( xhr.responseText ); // This JSON object is the response from the API
 				
+				var num_items = jsonObject.results.length;
+
+				console.log("That query resulted in "+num_items+" pieces of information for that contact.");
 			}
 		};
 		xhr.send(jsonPayload);
@@ -50,7 +42,6 @@ function doLogin()
 	{
 		document.getElementById("loginResult").innerHTML = err.message;
 	}
-
 }
 
 function saveCookie()
@@ -92,13 +83,4 @@ function readCookie()
 	{
 		document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
 	}
-}
-
-function doLogout()
-{
-	userId = 0;
-	firstName = "";
-	lastName = "";
-	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
-	window.location.href = "index.html";
 }
