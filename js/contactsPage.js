@@ -33,9 +33,9 @@ function search_contacts()
 			
 				console.log(jsonObject);
 				console.log(jsonObject.results[0]);
-				console.log(jsonObject.results[1]);
+				console.log(jsonObject.results.length);
 
-				display_contacts(jsonObject.results[0], jsonObject.results[1], jsonObject.results[2], jsonObject.results[3], jsonObject.results[4]);
+				display_contacts(jsonObject.results[1], jsonObject.results[2], jsonObject.results[3], jsonObject.results[4], jsonObject.results[5]);
 			}
 		};
 		xhr.send(jsonPayload);
