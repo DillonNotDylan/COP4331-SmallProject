@@ -13,7 +13,7 @@
 				readCookie();
 			}, false);
 		</script>
-
+		
 		<!-- Tab Identifier -->
 		<title>Simple Contacts</title>
 	</head>
@@ -35,28 +35,29 @@
 			<div class="searchbars" id="searchbars">
 				<input type="text" placeholder=" First Name ..." id="first_name_searchbar" />
 				<input type="text" placeholder=" Last Name ..." id="last_name_searchbar" />	
-				<button class="add_contact_button" type="button" onclick="search_contacts();">Search</button>
+				<button class="add_contact_button" type="button" onclick="display_contacts();">Search</button>
 			</div>
 		</div>
 		
 		<!-- Container for contact information -->
-		<div class="contact_container">
-			<h2 class="contact_name">Contact Name</h2>
-			<br>
-			<img class="contact_image" src="../images/default-user-image.png" alt="">
-			
-			<div class="contact_element">
-				<h3 class="contact_phone_number">Contact Number<button class="edit_phone_number_button" type="submit"></button></h3>
-			</div>
-			
-			<div class="contact_element">
-				<h3 class="contact_email">Contact Email<button class="edit_email_button" type="submit"></button></h3>
-			</div>
+		<div id="contact_set">
+			<div class="contact_container">
+				<h2 class="contact_name">Contact Name</h2>
+				<br>
+				<img class="contact_image" src="images/default-user-image.png" alt="">
+				
+				<div class="contact_element">
+					<h3 class="contact_phone_number">Contact Number<button class="edit_phone_number_button" type="button"></button></h3>
+				</div>
+				
+				<div class="contact_element">
+					<h3 class="contact_email">Contact Email<button class="edit_email_button" type="button"></button></h3>
+				</div>
 
-			<div class="contact_element">
-				<h3 class="contact_address">Contact Address<button class="edit_email_button" type="submit"></button></h3>
+				<div class="contact_element">
+					<h3 class="contact_address">Contact Address<button class="edit_email_button" type="button"></button></h3>
+				</div>
 			</div>
-
 		</div>
 		
 		<!-- Javascript Logic -->
