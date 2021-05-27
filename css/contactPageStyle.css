@@ -16,7 +16,7 @@ header
 	font-size: 2rem;
 }
 
-header,form
+header, .search_container
 {
     display: flex;
     min-height: 15vh;
@@ -37,39 +37,70 @@ header,form
 	border-color: blue;
 	border-radius: 0.5rem;
     padding: 0.5rem;
-    margin-top: 1.5rem;
+    margin-top: 1.5rem;    
     margin-bottom: 0rem;
 }
 
-form input, form button
+.search_container input, .search_container button
 {
     border-radius: 5px;
     padding: 0.4rem;
     font-size: 2rem;
     background: white;
-}
-
-form input
-{
     border-color: blue;
-	border-radius: 0.5rem;
+    border-radius: 0.5rem;
 }
 
-form button
+.search_container
+{
+    display: grid;
+	justify-content: center; 
+    margin: auto;
+}
+
+.searchbars input
+{
+    display: grid;
+    margin: auto;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+.search_container .add_contact_button
+{
+    display: grid;
+	justify-content: center; 
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+@media only screen and (max-width: 1000px)
+{
+    .searchbars
+    {
+        display: grid;
+    	justify-content: center; 
+        width: 50%;
+    }
+}
+
+.search_container button
 {
     color: #c065c0;
     cursor: pointer;
-    border: none;
 	padding: 1.55rem;
 	margin-left: 1rem;
     background: white;
     transition: all 0.3s ease;
+    float: bottom;
 }
 
-form button:hover
+.search_container button:hover
 {
     color: white;
-    background: red;
+    background: rgb(18, 206, 206);
 }
 
 .contact_container
@@ -100,7 +131,7 @@ form button:hover
         overflow-x: hidden;
     }
     
-    form input
+    .search_container input
     {
         width: 75%;
     }
