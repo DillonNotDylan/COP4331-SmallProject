@@ -102,7 +102,7 @@ function add_contact()
 	var add_email = document.getElementById("add_email").value;
 
 	// Prepare variables for the API
-	var jsonPayload = '{"userId: "' + userId + '", "first_name" : "' + add_first_name + '", "last_name" : "' + add_last_name + '", "phone_number" : "' + add_phone_number + '", "email" : "' + add_email +'"}';
+	var jsonPayload = '{"userId" : "' + userId + '", "first_name" : "' + add_first_name + '", "last_name" : "' + add_last_name + '", "phone_number" : "' + add_phone_number + '", "email" : "' + add_email +'"}';
 	console.log("jsonPayLoad: " + jsonPayload);
 	var url = urlBase + '/AddContact.' + extension;
 
