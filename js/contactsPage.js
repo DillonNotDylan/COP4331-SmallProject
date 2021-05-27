@@ -98,6 +98,15 @@ function display_contacts(f_name, l_name, phone_number, email, address)
 	//contact_container.appendChild(contact_address);
 }
 
+function doLogout()
+{
+	userId = 0;
+	firstName = "";
+	lastName = "";
+	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+	window.location.href = "index.html";
+}
+
 function saveCookie()
 {
 	var minutes = 20;
