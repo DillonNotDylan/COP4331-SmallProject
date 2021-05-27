@@ -6,7 +6,7 @@
 
     $searchCount = 0;
 
-    $conn = new mysql("local", "TheBeast", "WeLoveCOP4331", "smallproject");
+    $conn = new mysql("local", "small", "password", "smallproject");
 
     if($conn->connect_error)
     {
@@ -14,9 +14,10 @@
     }
     else
     {
-        $stmt = $conn->prepare("SELECT * FROM Users WHERE FirstName LIKE ?");
-
-        //TODO: Some logic to retrieve info from the database
+        $stmt = $conn->prepare("SELECT * FROM Users WHERE FirstName = ? AND LastName = ?");
+		$stmt->bind_param("ss", $inData["first_name"], $inData["last_name"]); // The JSON params sent from Javascript
+		$stmt->execute();
+		$result = $stmt->get_result();
 
         if($searchCount == 0)
         {
