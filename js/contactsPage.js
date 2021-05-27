@@ -44,7 +44,7 @@ function search_contacts()
 	{
 		document.getElementById("loginResult").innerHTML = err.message;
 	}
-
+}
 
 function doLogout()
 {
