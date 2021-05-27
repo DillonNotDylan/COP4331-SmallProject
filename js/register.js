@@ -1,4 +1,5 @@
 // insert init's here
+var userN, passO, passT;
 
 
 function userExists(user)
@@ -38,9 +39,41 @@ function userExists(user)
 	return 0;
 }
 
+function addUser()
+{
+	var obj = {user: userN, pass: passW};
+	var jsonPayload = JSON.stringify(obj);
+
+	var xhr = new XMLHttpRequest();
+	xhr.responseType = 'json';
+	let url = 'http://www.thebest-group28.xyz/LAMPAPI';
+
+	xhr.onreadystatechange = function() 
+	{
+		if (this.readyState == 4 && this.status == 200) 
+		{
+			var jsonObject = JSON.parse( xhr.responseText );
+			userId = jsonObject.id;
+			if( userId < 1 )
+			{		
+				document.getElementById("outp").innerHTML = "User already exists";
+				return;
+			}
+		
+			firstName = jsonObject.firstName;
+			lastName = jsonObject.lastName;
+
+			saveCookie();
+			window.location.href = "contactsPage.html";
+				
+		}
+	};
+	xhr.send(jsonPayload);
+
+}
+
 function checkValid()
 {
-	var userN, passO, passT;
 
 	userN = document.getElementById("user").value;
 	passO = document.getElementById("pass").value;
@@ -50,13 +83,16 @@ function checkValid()
 
 	if (passO != passT)
 	{
-		document.getElementById("outp").innerHTML() = "Warning: passowrds don't match!";
+		document.getElementById("outp").innerHTML = "Warning: passwords don't match!";
 		return;
 	}
 
-	
-	if (userExists(userN) != 0)
-		return;
+	document.getElementById("outp").innerHTML = "";
+
+	// add user to DB
+
+
+	// login to user with given credentials
 
 	//else addUser()
 	// sign into account?
