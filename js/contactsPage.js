@@ -30,12 +30,13 @@ function search_contacts()
 			if (this.readyState == 4 && this.status == 200) 
 			{
 				var jsonObject = JSON.parse( xhr.responseText ); // This JSON object is the response from the API
-				
-				// var num_items = jsonObject.results.length;
-				
+			
 				console.log(jsonObject);
+				console.log(jsonObject.results[0]);
+				console.log(jsonObject.results[1]);
 
-				/// console.log("That query resulted in "+num_items+" pieces of information for that contact.");
+				display_contacts(jsonObject.results[0], jsonObject.results[1], jsonObject.results[2], jsonObject.results[3]);
+				display_contacts(jsonObject.results[4], jsonObject.results[5], jsonObject.results[6], jsonObject.results[7]);
 			}
 		};
 		xhr.send(jsonPayload);
@@ -46,13 +47,55 @@ function search_contacts()
 	}
 }
 
-function doLogout()
+function display_contacts(f_name, l_name, phone_number, email, address)
 {
-	userId = 0;
-	firstName = "";
-	lastName = "";
-	document.cookie = "firstName= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
-	window.location.href = "index.html";
+	// Create a new contact card
+	var contact_set = document.getElementById('contact_set');
+	var contact_container = document.createElement('div');
+	contact_container.className = 'contact_container';
+	contact_set.appendChild(contact_container);
+
+	// Create the elements of a contact card
+	var contact_name = document.createElement('h2');
+	contact_name.className = 'contact_name';
+	var contact_image = document.createElement('image');
+	var contact_element_1 = document.createElement('div');
+	contact_element_1.className = 'contact_element';
+	var contact_element_2 = document.createElement('div');
+	contact_element_2.className = 'contact_element';
+	var contact_element_3 = document.createElement('div');
+	contact_element_3.className = 'contact_element';
+	var contact_phone_number = document.createElement('h3');
+	contact_phone_number.className = 'contact_phone_number';
+	var contact_email = document.createElement('h3');
+	contact_email.className = 'contact_email';
+	var contact_address = document.createElement('h3');
+	contact_address.className = 'contact_address';
+
+	// Add text to the elements of the contact card
+	var contact_name_text = document.createTextNode(f_name + " " + l_name);
+	contact_name.appendChild(contact_name_text);
+	var contact_phone_number_text = document.createTextNode(phone_number);
+	contact_phone_number.appendChild(contact_phone_number_text);
+	var contact_email_text = document.createTextNode(email);
+	contact_email.appendChild(contact_email_text);
+	var contact_address_text = document.createTextNode("789 leaf village");
+	contact_address.appendChild(contact_address_text);
+	
+
+	// Add the elements to the contact card
+	contact_element_1.appendChild(contact_phone_number);
+	contact_element_2.appendChild(contact_email);
+	contact_element_3.appendChild(contact_address);
+	contact_container.appendChild(contact_name);
+	contact_container.appendChild(contact_image);
+	contact_container.appendChild(contact_element_1);
+	contact_container.appendChild(contact_element_2);
+	contact_container.appendChild(contact_element_3);
+
+	//contact_container.appendChild(contact_phone_number);
+	//contact_container.appendChild(contact_email);
+	//contact_container.appendChild(contact_address);
 }
 
 function saveCookie()
