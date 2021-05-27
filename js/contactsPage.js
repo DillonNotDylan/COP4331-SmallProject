@@ -131,6 +131,8 @@ function add_contact()
 	{
 		document.getElementById("loginResult").innerHTML = err.message;
 	}
+	
+	closeNav()
 }
 
 function doLogout()
