@@ -31,11 +31,11 @@ function search_contacts()
 			{
 				var jsonObject = JSON.parse( xhr.responseText ); // This JSON object is the response from the API
 				
-				var num_items = jsonObject.results.length;
+				// var num_items = jsonObject.results.length;
 				
-				console.log(jsonObject.results);
+				console.log(jsonObject);
 
-				console.log("That query resulted in "+num_items+" pieces of information for that contact.");
+				/// console.log("That query resulted in "+num_items+" pieces of information for that contact.");
 			}
 		};
 		xhr.send(jsonPayload);
