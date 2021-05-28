@@ -13,7 +13,7 @@ function search_contacts()
 	var last_name = document.getElementById("last_name_searchbar").value;
 
 	// Refresh the page so we don't see multiple of the same search
-	location.reload();
+	// location.reload();
     
 	// FOR TESTING ONLY (NOT SECURE): Display the search bar entries in the console for debugging 
 	console.log("UID: " + userId + " / First: " + first_name + " / Last: " + last_name);
