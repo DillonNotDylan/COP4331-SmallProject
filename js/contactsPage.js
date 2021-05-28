@@ -4,12 +4,16 @@ var extension = 'php';
 var userId = 0;
 var firstName = "";
 var lastName = "";
+var jsonObject;
 
 function search_contacts()
 {
 	// Capture the text from the search bars to use for querying
 	var first_name = document.getElementById("first_name_searchbar").value;
 	var last_name = document.getElementById("last_name_searchbar").value;
+
+	// Refresh the page so we don't see multiple of the same search
+	location.reload();
     
 	// FOR TESTING ONLY (NOT SECURE): Display the search bar entries in the console for debugging 
 	console.log("UID: " + userId + " / First: " + first_name + " / Last: " + last_name);
@@ -31,11 +35,7 @@ function search_contacts()
 			{
 				var jsonObject = JSON.parse( xhr.responseText ); // This JSON object is the response from the API
 				var index_helper = 0;
-				
-				console.log(jsonObject);
-				console.log(jsonObject.results[0]);
-				console.log(jsonObject.results.length / 5);
-				
+								
 				for(var i = 0; i < (jsonObject.results.length / 5); i++)
 				{
 					display_contacts(jsonObject.results[i+1+index_helper], jsonObject.results[i+2+index_helper], jsonObject.results[i+3+index_helper], jsonObject.results[i+4+index_helper]);
@@ -140,6 +140,62 @@ function add_contact()
 	closeNav()
 }
 
+function edit_contact()
+{
+	var index = document.getElementById('contact_index').innerHTML;
+	console.log("index is: " + index);
+
+	for(var i = 0; i < (jsonObject.results.length / 5); i++)
+	{
+		if(jsonObject.results[i] == index)
+		{
+			break;
+		}
+	}
+
+	var userId = jsonObject.results[i];
+	var first_name = jsonObject.results[i+1];
+	var last_name = jsonObject.results[i]+2;
+	var phone_number = jsonObject.results[i+3];
+	var address = jsonObject.results[i+4];
+
+	// Prepare variables for the API
+	var jsonPayload = '{"userId" : "' + userId + '", "first_name" : "' + first_name + '", "last_name" : "' + last_name + '", "phone_number" : "' + phone_number + '", "address" : "' + address + '"}';
+	var url = urlBase + '/EditContact.' + extension;
+
+	console.log(jsonPayload)
+
+	// Attempt a connection to the API
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function()
+		{
+			// If we successfully connect, retrieve the information from the APIs query
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				var jsonObject = JSON.parse( xhr.responseText ); // This JSON object is the response from the API
+				
+				if(jsonObject.error == "")
+				{
+					alert("Your contact was edited, please refresh the page");
+				}
+				else
+				{
+					alert("Something went wrong, please try to edit that contact again");
+				}
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		// document.getElementById("editResult").innerHTML = err.message;
+	}
+}
+
 function doLogout()
 {
 	userId = 0;
@@ -192,10 +248,32 @@ function readCookie()
 
 function openNav() 
 {
-	  document.getElementById("myNav").style.width = "100%";
+	document.getElementById("myNav").style.width = "100%";
 }	
 
 function closeNav() 
 {
 	  document.getElementById("myNav").style.width = "0%";
+}
+
+function open_edit_page()
+{
+	document.getElementById("myNav2").style.width = "100%";
+
+	var first_name_field = document.getElementById("edit_first_name");
+	first_name_field.setAttribute('placeholder', 'First Name ...');
+
+	var first_name_field = document.getElementById("edit_last_name");
+	first_name_field.setAttribute('placeholder', 'Last Name ...');
+
+	var first_name_field = document.getElementById("edit_phone_number");
+	first_name_field.setAttribute('placeholder', 'Phone Number ...');
+
+	var first_name_field = document.getElementById("edit_email");
+	first_name_field.setAttribute('placeholder', 'Email ...');
+}
+
+function close_edit_page()
+{
+	document.getElementById("myNav2").style.width = "0%";
 }
