@@ -1,6 +1,6 @@
 // insert init's here
 var firstN, lastN, userN, passO, passT;
-var urlBase = "http:/www.thebest-group28.xyz/LAMPAPI/test.php"
+var urlBase = "http:/www.thebest-group28.xyz/LAMPAPI"
 
 
 function addUser()
