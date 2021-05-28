@@ -1,9 +1,7 @@
 // insert init's here
 var firstN, lastN, userN, passO, passT;
 var urlBase = "http:/www.thebest-group28.xyz/LAMPAPI"
-jQuery.getScript("md5.js", function(){
-	alert("Script loaded");
-});
+
 
 function addUser()
 {
