@@ -30,7 +30,8 @@ function search_contacts()
 			if (this.readyState == 4 && this.status == 200) 
 			{
 				var jsonObject = JSON.parse( xhr.responseText ); // This JSON object is the response from the API
-			
+				var index_helper = 0;
+				
 				console.log(jsonObject);
 				console.log(jsonObject.results[0]);
 				console.log(jsonObject.results.length);
