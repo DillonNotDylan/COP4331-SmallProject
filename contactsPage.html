@@ -7,29 +7,43 @@
 		<script type="text/javascript" src="js/contactsPage.js"></script>
 
 		<!-- Logic to make sure the user is still signed in -->
+		
 		<script type="text/javascript">
 			document.addEventListener('DOMContentLoaded', function() 
 			{
 				readCookie();
 			}, false);
 		</script>
-
+		
 		<!-- Tab Identifier -->
 		<title>Simple Contacts</title>
 	</head>
 
 	<body>
-		<!-- Log Out Button -->
-		<div id="loggedInDiv">
-			<span id="userName"></span><br />
-			<button type="button" id="logoutButton" class="buttons" onclick="doLogout();"> Log Out </button>
+		<!-- The navbar at the top of the page -->
+		<div id="navbar">
+			<ul>
+				<li style="float: left; margin-right: 2rem;">
+					<!-- Project Name -->
+					<h1 >Simple Contacts</h1>
+				</li>
+				
+				<li>
+					<div id="loggedInDiv">
+						<h3 id="userName"></h3>
+					</div>
+				</li>
+				
+				<li style="float: right; margin-top: -1.75rem;">			
+					<!-- Use any element to open/show the overlay navigation menu -->
+					<button class="openbtn" type="button" onclick="openNav()" >Add Contact</button>
+					
+					<!-- Log Out Button -->
+					<button type="button" id="logoutButton" class="openbtn" onclick="doLogout();"> Log Out </button>
+				</li>
+			</ul>
 		</div>
 		
-		<!-- Project Name -->
-		<header>
-			<h1>Simple Contacts</h1>
-		</header>
-
 		<!-- The overlay -->
 		<div id="myNav" class="overlay">
 
@@ -45,9 +59,6 @@
 				<button type="button" onclick="add_contact()">Submit</button>
 			</div>
 		</div>
-		
-		<!-- Use any element to open/show the overlay navigation menu -->
-		<button class="openbtn" type="button" onclick="openNav()">Add Contact</button>
 
 		<!-- Search bar and Add Contact button -->
 		<div class="search_container" id="search_container">
@@ -60,6 +71,9 @@
 		
 		<!-- Container for contact information -->
 		<div id="contact_set">
+
+			<!-- For Example Only -->
+			<!--
 			<div class="contact_container">
 				<h2 class="contact_name">Contact Name</h2>
 				<br>
@@ -77,6 +91,7 @@
 					<h3 class="contact_address">Contact Address<button class="edit_email_button" type="button"></button></h3>
 				</div>
 			</div>
+			-->
 		</div>
 		
 		<!-- Javascript Logic -->
