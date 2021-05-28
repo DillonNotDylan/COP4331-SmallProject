@@ -64,8 +64,8 @@ function display_contacts(f_name, l_name, phone_number, email, address)
 	contact_name.className = 'contact_name';
 	var edit_button = createElement('button');
 	edit_button.setAttribute('id', 'edit_contact_button');
-	edit_button.setAttribute('onclick', 'open_edit_page()');
-	edit_button.setAttribute('placeholder', 'edit');
+	edit_button.onclick = open_edit_page();
+	edit_button.innerHTML = 'edit';
 	contact_name.appendChild(edit_button);
 	var contact_image = document.createElement('image');
 	var contact_element_1 = document.createElement('div');
