@@ -273,6 +273,10 @@ function readCookie()
 function openNav() 
 {
 	document.getElementById("myNav").style.width = "100%";
+	document.getElementById("add_first_name").value = "";
+	document.getElementById("add_last_name").value = "";
+	document.getElementById("add_phone_number").value = "";
+	document.getElementById("add_email").value = "";
 }	
 
 function closeNav() 
