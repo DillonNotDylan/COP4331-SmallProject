@@ -1,7 +1,9 @@
 // insert init's here
 var firstN, lastN, userN, passO, passT;
 var urlBase = "http:/www.thebest-group28.xyz/LAMPAPI"
-
+$.getScript("md5.js", function(){
+	alert("Script loaded");
+});
 
 function addUser()
 {
@@ -11,8 +13,7 @@ function addUser()
 	var user = document.getElementById("user").value;
 	var pass = document.getElementById("pass").value;
 	var hash = md5(pass);
-	var repass = document.getElementById("repass").value;
-	var rehash = md5(repass);
+	
 
 	// Prepare variables for the API
 	var jsonPayload = '{"first" : "' + first + '", "last" : "' + last + '", "user" : "' + user + '", "pass" : "' + hash +'"}';
