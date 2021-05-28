@@ -216,6 +216,8 @@ function edit_contact()
 	{
 		// document.getElementById("editResult").innerHTML = err.message;
 	}
+	
+	close_edit_page()
 }
 
 function doLogout()
