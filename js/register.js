@@ -30,10 +30,10 @@ function addUser()
 			{
 				var jsonObject = JSON.parse( xhr.responseText ); // Response from the API
 			
-				if(jsonObject.error[0] == "")
+				if(jsonObject.error.length < 0)
 				{
 					alert("User registered. redirecting to login...");
-					
+					window.location.href = "index.html";
 				}
 				else
 				{
@@ -75,5 +75,4 @@ function checkValid()
 	document.getElementById("outp").innerHTML = "";
 	addUser();
 
-	window.location.href = "index.html";
 }
