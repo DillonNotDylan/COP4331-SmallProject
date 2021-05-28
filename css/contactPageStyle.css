@@ -212,6 +212,25 @@ body
     border: 2px solid purple;
 }
 
+.contact_container .contact_name
+{
+    margin-right: -15rem;
+    margin-bottom: -2rem;
+}
+
+#edit_contact_button
+{
+    float: right;
+    margin: auto;
+    margin-left: 10rem;
+}
+
+#edit_contact_button:hover
+{
+    background-color: brown;
+    color: cornsilk;
+}
+
 @media only screen and (max-width: 1000px)
 {
     header
