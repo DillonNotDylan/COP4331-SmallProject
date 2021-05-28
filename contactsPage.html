@@ -7,14 +7,14 @@
 		<script type="text/javascript" src="js/contactsPage.js"></script>
 
 		<!-- Logic to make sure the user is still signed in -->
-		
+
 		<script type="text/javascript">
 			document.addEventListener('DOMContentLoaded', function() 
 			{
 				readCookie();
 			}, false);
 		</script>
-		
+
 		<!-- Tab Identifier -->
 		<title>Simple Contacts</title>
 	</head>
@@ -35,7 +35,7 @@
 				</li>
 				
 				<li style="float: right; margin-top: -1.75rem;">			
-					<!-- Use any element to open/show the overlay navigation menu -->
+					<!-- Add Contact Button -->
 					<button class="openbtn" type="button" onclick="openNav()" >Add Contact</button>
 					
 					<!-- Log Out Button -->
@@ -44,7 +44,7 @@
 			</ul>
 		</div>
 		
-		<!-- The overlay -->
+		<!-- The add contact overlay -->
 		<div id="myNav" class="overlay">
 				<!-- Button to close the overlay navigation -->
 				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -57,6 +57,21 @@
 					<input id="add_email" type="text" placeholder=" Address ...">
 					<button type="button" onclick="add_contact()">Submit</button>
 				</div>
+		</div>
+
+		<!-- The edit contact overlay -->
+		<div id="myNav2" class="overlay">
+			<!-- Button to close the overlay navigation -->
+			<a href="javascript:void(0)" class="closebtn" onclick="close_edit_page()">&times;</a>
+		
+			<!-- Overlay content -->
+			<div class="overlay-content">
+				<input id="edit_first_name" type="text">
+				<input id="edit_last_name" type="text">
+				<input id="edit_phone_number" type="text">
+				<input id="edit_email" type="text">
+				<button type="button" onclick="edit_contact()">Submit</button>
+			</div>
 		</div>
 
 		<!-- Search bar and Add Contact button -->
@@ -74,21 +89,23 @@
 			<!-- For Example Only -->
 			<!--
 			<div class="contact_container">
-				<h2 class="contact_name">Contact Name</h2>
+				<h2 class="contact_name">Contact Name <button id="edit_contact_button" onclick="open_edit_page()">edit</button> </h2>
 				<br>
 				<img class="contact_image" src="images/default-user-image.png" alt="">
 				
 				<div class="contact_element">
-					<h3 class="contact_phone_number">Contact Number<button class="edit_phone_number_button" type="button"></button></h3>
+					<h3 class="contact_phone_number">Contact Number</h3>
 				</div>
 				
 				<div class="contact_element">
-					<h3 class="contact_email">Contact Email<button class="edit_email_button" type="button"></button></h3>
+					<h3 class="contact_email">Contact Email</h3>
 				</div>
 
 				<div class="contact_element">
-					<h3 class="contact_address">Contact Address<button class="edit_email_button" type="button"></button></h3>
+					<h3 class="contact_address">Contact Address</h3>
 				</div>
+
+				<p style="display: none;" id="contact_index" >5</p>
 			</div>
 			-->
 		</div>
