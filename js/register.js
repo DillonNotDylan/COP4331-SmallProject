@@ -30,7 +30,7 @@ function addUser()
 			{
 				var jsonObject = JSON.parse( xhr.responseText ); // Response from the API
 			
-				if(jsonObject.error.length == 0)
+				if(jsonObject.error.length < 1)
 				{
 					alert("User registered. redirecting to login...");
 					window.location.href = "index.html";
