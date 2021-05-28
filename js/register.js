@@ -15,7 +15,7 @@ function addUser()
 	var rehash = md5(repass);
 
 	// Prepare variables for the API
-	var jsonPayload = '{"first" : "' + first + '", "last" : "' + last + '", "user" : "' + user + '", "pass" : "' + pass +'"}';
+	var jsonPayload = '{"first" : "' + first + '", "last" : "' + last + '", "user" : "' + user + '", "pass" : "' + hash +'"}';
 	console.log("jsonPayLoad: " + jsonPayload);
 	var url = urlBase + '/Register.' + extension;
 
