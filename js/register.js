@@ -32,13 +32,19 @@ function addUser()
 			
 				if(jsonObject.error[0] == "")
 				{
-					alert("User registered");
+					alert("User registered. redirecting to login...");
 					
+				}
+				else
+				{
+					alert("Error: Server Error, please Try Again");
+					return;
 				}
 			}
 		};
+
+		// send data
 		xhr.send(jsonPayload);
-		window.location.href = "index.html";
 	}
 	catch(err)
 	{
@@ -55,6 +61,11 @@ function checkValid()
 	passT = document.getElementById("repass").value;
 	var hashT = md5(passT);
 
+	if (userN.length * passO.length * passT.length <= 0)
+	{
+		document.getElementById("outp").innerHTML = "Warning: Please insert value for required fields";
+	}
+
 	if (hashO != hashT)
 	{
 		document.getElementById("outp").innerHTML = "Warning: passwords don't match!";
@@ -63,4 +74,6 @@ function checkValid()
 
 	document.getElementById("outp").innerHTML = "";
 	addUser();
+
+	window.location.href = "index.html";
 }
