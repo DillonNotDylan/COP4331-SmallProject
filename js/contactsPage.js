@@ -164,6 +164,8 @@ function add_contact()
 
 function edit_contact()
 {
+	close_edit_page()
+	
 	var index = document.getElementById('contact_index').innerHTML;
 	console.log("index is: " + index);
 
@@ -216,8 +218,6 @@ function edit_contact()
 	{
 		// document.getElementById("editResult").innerHTML = err.message;
 	}
-	
-	close_edit_page()
 }
 
 function doLogout()
