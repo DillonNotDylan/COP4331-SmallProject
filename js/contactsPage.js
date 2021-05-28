@@ -64,7 +64,24 @@ function display_contacts(f_name, l_name, phone_number, email, address)
 	contact_name.className = 'contact_name';
 	var edit_button = document.createElement('button');
 	edit_button.setAttribute('id', 'edit_contact_button');
-	edit_button.onclick = open_edit_page();
+	edit_button.onclick = function()
+	{
+		document.getElementById("myNav2").style.width = "100%";
+
+		var first_name_field = document.getElementById("edit_first_name");
+		first_name_field.setAttribute('placeholder', 'First Name ...');
+	
+		var first_name_field = document.getElementById("edit_last_name");
+		first_name_field.setAttribute('placeholder', 'Last Name ...');
+	
+		var first_name_field = document.getElementById("edit_phone_number");
+		first_name_field.setAttribute('placeholder', 'Phone Number ...');
+	
+		var first_name_field = document.getElementById("edit_email");
+		first_name_field.setAttribute('placeholder', 'Email ...');
+
+		return;
+	}
 	edit_button.innerHTML = 'edit';
 	contact_name.appendChild(edit_button);
 	var contact_image = document.createElement('image');
