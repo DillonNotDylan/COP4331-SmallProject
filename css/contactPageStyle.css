@@ -38,7 +38,6 @@ body
     z-index: 1; 
     left: 0;
     top: 0;
-    background-color: rgb(0,0,0);
     background-color: rgba(0,0,0, 0.9);
     overflow-x: hidden;
 }
@@ -48,9 +47,17 @@ body
     display: grid;
     position: relative;
     top: 30%;
-    width: 50%;
+    width: 30%;
     text-align: center;
     margin: auto;
+    border-radius: 3rem;
+    padding: 0.4rem;
+    background-color: rgb(223, 223, 223);
+}
+
+.overlay-content #add_first_name
+{
+    margin-top: 2rem;
 }
 
 .overlay-content input, button
