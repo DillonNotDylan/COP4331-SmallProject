@@ -1,5 +1,5 @@
 /* Getting rid of HTML defaults */
-*{ margin: 5px; padding: 5px; box-sizing: border-box; }
+*{ margin: 0; padding: 0; box-sizing: border-box; }
 
 body
 {
@@ -17,7 +17,7 @@ body
 	background-color: #e0e5e6;
 	border-radius: 3.5rem;
 	margin: auto;
-	margin-top: 5rem;
+	margin-top: 7rem;
 	width: 500px;
 	height: 550px;
 	border: 2px solid purple;
