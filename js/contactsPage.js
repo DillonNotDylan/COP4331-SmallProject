@@ -36,7 +36,7 @@ function search_contacts()
 				console.log(jsonObject.results[0]);
 				console.log(jsonObject.results.length);
 				
-				for(var i = 0; i < (jsonObject.results.length % 5); i++)
+				for(var i = 0; i < (jsonObject.results.length / 5); i++)
 				{
 					display_contacts(jsonObject.results[i+1+index_helper], jsonObject.results[i+2+index_helper], jsonObject.results[i+3+index_helper], jsonObject.results[i+4+index_helper]);
 					index_helper = index_helper + 4;
