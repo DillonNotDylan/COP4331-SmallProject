@@ -10,6 +10,26 @@ body
     background-image: linear-gradient(120deg, #5f57d1, #c065c0);
 }
 
+#navbar ul 
+{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    height: 4rem;
+}
+  
+#navbar li 
+{
+    margin-top: 1.25rem;
+}
+
+#navbar h1
+{
+    float: left;
+}
+  
 .overlay 
 {
     height: 100%;
@@ -74,46 +94,38 @@ body
     float: right;
 }
 
+#navbar h1
+{
+	font-size: 1.5rem;
+    display: inline;
+    float: left;
+    margin-left: 2rem;
+    margin-top: -0.25rem;
+}
+
 .openbtn
 {
-    font-size: 1.5rem;
+    font-size: 1rem;
 	border-color: blue;
 	border-radius: 0.5rem;
     padding: 0.5rem;
-    margin: auto;
-    display: grid;
-	justify-content: center; 
+    margin-top: -2rem;
+    margin-right: 1rem;
 }
 
-/* STYLYING INPUT ELEMENT AND THE BUTTON */
-header
+#logoutButton
 {
-	font-size: 2rem;
+    font-size: 1rem;
+	border-color: blue;
+	border-radius: 0.5rem;
 }
 
-header, .search_container
+.search_container
 {
     display: flex;
     min-height: 15vh;
     align-items: center; 
 	justify-content: center;   
-}
-
-#loggedInDiv
-{
-    display: grid;
-	justify-content: center; 
-    margin: auto;
-}
-
-#loggedInDiv button
-{
-    font-size: 1.5rem;
-	border-color: blue;
-	border-radius: 0.5rem;
-    padding: 0.5rem;
-    margin-top: 1.5rem;    
-    margin-bottom: 0rem;
 }
 
 .search_container input, .search_container button
