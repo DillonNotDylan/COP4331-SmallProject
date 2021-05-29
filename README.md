@@ -6,12 +6,17 @@ The website itself is hosted on DigitalOcean.
 
 The structure of this website is as follows:
 - /var/www/html
-  - html
-    - contactsPage.html
-    - signUp.html
-    - login.html
+  
+  - contactsPage.html
+  - signUp.html
+  - login.html
+  
   - js
     - app.js
+    - code.js
+    - contactsPage.js
+    - md5.js
+    - register.js
   - css
     - contactPageStyle.css
     - loginStyles.css
@@ -19,6 +24,9 @@ The structure of this website is as follows:
   - images
     - default-user-image.png
   - LAMPAPI
+    - AddContact.php
+    - EditContact.php
     - Login.php
-    - sarchContacts.php
+    - Register.php
+    - SearchContacts.php
     
