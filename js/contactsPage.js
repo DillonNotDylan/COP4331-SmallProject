@@ -246,7 +246,7 @@ function delete_contact()
 	// close_edit_page()
 	
 	var contactId = document.getElementById('contact_index').innerHTML;
-	console.log("index is: " + index);
+	console.log("contactId is: " + contactId);
 
 	// Prepare variables for the API
 	var jsonPayload = '{"contactId" : "' + contactId  + '"}';
