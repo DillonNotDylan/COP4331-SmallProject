@@ -14,8 +14,8 @@
 	}
 	else
 	{
-		$stmt = $conn->prepare("DELETE FROM ContactList WHERE ContactID = 'contactId'");
-		$stmt->bind_param("s", $inData["contactId"]);
+		$contactId = $inData["contactId"];
+		$stmt = $conn->prepare("DELETE FROM ContactList WHERE ContactID = '$contactId'");
 		$stmt->execute();
 		$stmt->close();
 		$conn->close();
