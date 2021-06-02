@@ -83,7 +83,7 @@ function display_contacts(f_name, l_name, phone_number, email, id)
 	var contactId = document.createElement('p');
 	contactId.setAttribute('id', 'contact_index');
 	//contactId.style.display = 'none';
-	contactId.innerHTML = id.toGTMString;
+	//contactId.innerHTML = id;
 	console.log(f_name +""+ id);
 
 	// Add text to the elements of the contact card
