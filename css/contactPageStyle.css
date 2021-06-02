@@ -4,9 +4,9 @@
 /* Styling the body of our document  */
 body
 {
-	color: white;
-	min-height: 100vh;
-	font-family: 'Poppins', sans-serif;
+    color: white;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
     background-image: linear-gradient(120deg, #453f97, #804480);
 }
 
@@ -227,25 +227,25 @@ body
     margin-bottom: -2rem;
 }
 
-#edit_contact_button
+.edit_delete_div #edit_contact_button
 {
     font-size: 1.5rem;
     padding: 0.5rem;
 }
 
-#delete_contact_button
+.edit_delete_div #delete_contact_button
 {
     font-size: 1.5rem;
     padding: 0.5rem;
 }
 
-#edit_contact_button:hover
+.edit_delete_div #edit_contact_button:hover
 {
     background-color: rgb(22, 177, 48);
     color: cornsilk;
 }
 
-#delete_contact_button:hover
+.edit_delete_div #delete_contact_button:hover
 {
     background-color: rgb(187, 30, 19);
     color: cornsilk;
