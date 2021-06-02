@@ -79,7 +79,8 @@ function display_contacts(f_name, l_name, phone_number, email, id)
 	var contact_address = document.createElement('h3');
 	contact_address.className = 'contact_address';
 	var contactId = document.createElement('p');
-	contactId.style.display = 'none';
+	contactId.setAttribute('id', 'contact_index');
+	//contactId.style.display = 'none';
 	contactId.innerHTML = id;
 
 	// Add text to the elements of the contact card
