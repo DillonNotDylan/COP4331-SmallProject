@@ -38,7 +38,7 @@ function search_contacts()
 								
 				for(var i = 0; i < (jsonObject.results.length / 5); i++)
 				{
-					display_contacts(jsonObject.results[i+1+index_helper], jsonObject.results[i+2+index_helper], jsonObject.results[i+3+index_helper], jsonObject.results[i+4+index_helper]);
+					display_contacts(jsonObject.results[i+1+index_helper], jsonObject.results[i+2+index_helper], jsonObject.results[i+3+index_helper], jsonObject.results[i+0+index_helper]);
 					index_helper = index_helper + 4;
 				}
 			}
@@ -51,7 +51,7 @@ function search_contacts()
 	}
 }
 
-function display_contacts(f_name, l_name, phone_number, email, address)
+function display_contacts(f_name, l_name, phone_number, email, id)
 {
 	// Create a new contact card
 	var contact_set = document.getElementById('contact_set');
@@ -63,6 +63,7 @@ function display_contacts(f_name, l_name, phone_number, email, address)
 	var contact_name = document.createElement('h2');
 	contact_name.className = 'contact_name';
 	var contact_image = document.createElement('image');
+	contact_image.setAttribute('source', src='images/default-user-image.png');
 	var contact_element_1 = document.createElement('div');
 	contact_element_1.className = 'contact_element';
 	var contact_element_2 = document.createElement('div');
@@ -79,6 +80,7 @@ function display_contacts(f_name, l_name, phone_number, email, address)
 	contact_address.className = 'contact_address';
 	var contactId = document.createElement('p');
 	contactId.style.display = 'none';
+	contactId.innerHTML = id;
 
 	// Add text to the elements of the contact card
 	var contact_name_text = document.createTextNode(f_name + " " + l_name);
