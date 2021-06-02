@@ -203,7 +203,7 @@ body
     background-color: rgb(223, 223, 223);
     display: grid;
     align-items: center; 
-	justify-content: center;
+    justify-content: center;
     width: 25rem;
     height: 25rem;
     margin: 0 auto;
