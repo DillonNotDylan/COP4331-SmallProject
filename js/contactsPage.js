@@ -40,7 +40,7 @@ function search_contacts()
 								
 				for(var i = 0; i < (jsonObject.results.length / 5); i++)
 				{
-					display_contacts(jsonObject.results[i+1+index_helper], jsonObject.results[i+2+index_helper], jsonObject.results[i+3+index_helper], jsonObject.results[i+0+index_helper]);
+					display_contacts(jsonObject.results[i+1+index_helper], jsonObject.results[i+2+index_helper], jsonObject.results[i+3+index_helper], jsonObject.results[i+4+index_helper], jsonObject.results[i+0+index_helper]);
 					index_helper = index_helper + 4;
 				}
 			}
@@ -83,7 +83,7 @@ function display_contacts(f_name, l_name, phone_number, email, id)
 	var contactId = document.createElement('p');
 	contactId.setAttribute('id', 'contact_index');
 	//contactId.style.display = 'none';
-	//contactId.innerHTML = id;
+	contactId.innerHTML = id;
 	console.log(f_name +""+ id);
 
 	// Add text to the elements of the contact card
