@@ -62,6 +62,35 @@ function display_contacts(f_name, l_name, phone_number, email, address)
 	// Create the elements of a contact card
 	var contact_name = document.createElement('h2');
 	contact_name.className = 'contact_name';
+	var contact_image = document.createElement('image');
+	var contact_element_1 = document.createElement('div');
+	contact_element_1.className = 'contact_element';
+	var contact_element_2 = document.createElement('div');
+	contact_element_2.className = 'contact_element';
+	var contact_element_3 = document.createElement('div');
+	contact_element_3.className = 'contact_element';
+	var edit_delete_div = document.createElement('div');
+	edit_delete_div.className = 'edit_delete_div';
+	var contact_phone_number = document.createElement('h3');
+	contact_phone_number.className = 'contact_phone_number';
+	var contact_email = document.createElement('h3');
+	contact_email.className = 'contact_email';
+	var contact_address = document.createElement('h3');
+	contact_address.className = 'contact_address';
+	var contactId = document.createElement('p');
+	contactId.style.display = 'none';
+
+	// Add text to the elements of the contact card
+	var contact_name_text = document.createTextNode(f_name + " " + l_name);
+	contact_name.appendChild(contact_name_text);
+	var contact_phone_number_text = document.createTextNode(phone_number);
+	contact_phone_number.appendChild(contact_phone_number_text);
+	var contact_email_text = document.createTextNode(email);
+	contact_email.appendChild(contact_email_text);
+	var contact_address_text = document.createTextNode("789 leaf village");
+	contact_address.appendChild(contact_address_text);
+
+	// Add buttons
 	var edit_button = document.createElement('button');
 	edit_button.setAttribute('id', 'edit_contact_button');
 	edit_button.onclick = function()
@@ -83,31 +112,19 @@ function display_contacts(f_name, l_name, phone_number, email, address)
 		return;
 	}
 	edit_button.innerHTML = 'edit';
-	contact_name.appendChild(edit_button);
-	var contact_image = document.createElement('image');
-	var contact_element_1 = document.createElement('div');
-	contact_element_1.className = 'contact_element';
-	var contact_element_2 = document.createElement('div');
-	contact_element_2.className = 'contact_element';
-	var contact_element_3 = document.createElement('div');
-	contact_element_3.className = 'contact_element';
-	var contact_phone_number = document.createElement('h3');
-	contact_phone_number.className = 'contact_phone_number';
-	var contact_email = document.createElement('h3');
-	contact_email.className = 'contact_email';
-	var contact_address = document.createElement('h3');
-	contact_address.className = 'contact_address';
-
-	// Add text to the elements of the contact card
-	var contact_name_text = document.createTextNode(f_name + " " + l_name);
-	contact_name.appendChild(contact_name_text);
-	var contact_phone_number_text = document.createTextNode(phone_number);
-	contact_phone_number.appendChild(contact_phone_number_text);
-	var contact_email_text = document.createTextNode(email);
-	contact_email.appendChild(contact_email_text);
-	var contact_address_text = document.createTextNode("789 leaf village");
-	contact_address.appendChild(contact_address_text);
+	edit_delete_div.appendChild(edit_button);
 	
+	var delete_button = document.createElement('button');
+	delete_button.setAttribute('id', 'delete_contact_button');
+	delete_button.onclick = function()
+	{
+		// Add functionality to ask user if they are sure about deleting a contact
+		delete_contact();
+
+		return;
+	}
+	delete_button.innerHTML = 'delete';
+	edit_delete_div.appendChild(delete_button);
 
 	// Add the elements to the contact card
 	contact_element_1.appendChild(contact_phone_number);
@@ -118,6 +135,8 @@ function display_contacts(f_name, l_name, phone_number, email, address)
 	contact_container.appendChild(contact_element_1);
 	contact_container.appendChild(contact_element_2);
 	contact_container.appendChild(contact_element_3);
+	contact_container.appendChild(contactId);
+	contact_container.appendChild(edit_delete_div);
 }
 
 function add_contact()
@@ -209,6 +228,50 @@ function edit_contact()
 				else
 				{
 					alert("Something went wrong, please try to edit that contact again");
+				}
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		// document.getElementById("editResult").innerHTML = err.message;
+	}
+}
+
+function delete_contact()
+{
+	// close_edit_page()
+	
+	var contactId = document.getElementById('contact_index').innerHTML;
+	console.log("index is: " + index);
+
+	// Prepare variables for the API
+	var jsonPayload = '{"contactId" : "' + contactId  + '"}';
+	var url = urlBase + '/DeleteContact.' + extension;
+
+	console.log(jsonPayload)
+
+	// Attempt a connection to the API
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function()
+		{
+			// If we successfully connect, retrieve the information from the APIs query
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				var jsonObject = JSON.parse( xhr.responseText ); // This JSON object is the response from the API
+				
+				if(jsonObject.error == "")
+				{
+					alert("Your contact was deleted, please refresh the page");
+				}
+				else
+				{
+					alert("Something went wrong, please try to delete that contact again");
 				}
 			}
 		};
