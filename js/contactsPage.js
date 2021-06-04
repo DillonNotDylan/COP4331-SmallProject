@@ -195,7 +195,7 @@ function edit_contact()
 	
 	close_edit_page()
 	
-	var index = document.getElementsByClassName('contact_index').innerHTML;
+	var index = document.getElementsByClassName('contact_index').value;
 	console.log("index is: " + index);
 
 	
