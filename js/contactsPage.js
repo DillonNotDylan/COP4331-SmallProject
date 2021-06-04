@@ -198,24 +198,15 @@ function edit_contact()
 	var index = document.getElementsByClassName('contact_index').innerHTML;
 	console.log("index is: " + index);
 
-	for(var i = 0; i < (jsonObject.results.length / 5); i++)
-	{
-		if(jsonObject.results[i] == index)
-		{
-			break;
-		}
-	}
 	
-	console.log("edit_constact past the start");
-
-	var userId = jsonObject.results[i];
-	var first_name = jsonObject.results[i+1];
-	var last_name = jsonObject.results[i]+2;
-	var phone_number = jsonObject.results[i+3];
-	var email = jsonObject.results[i+4];
+	var contactId = index;
+	var first_name = document.getElementById("edit_first_name").innerHTML;
+	var last_name = document.getElementById("edit_last_name").innerHTML;
+	var phone_number = document.getElementById("edit_fphone_number").innerHTML;
+	var email = document.getElementById("edit_address").innerHTML;
 
 	// Prepare variables for the API
-	var jsonPayload = '{"userId" : "' + userId + '", "contactId" : "' + id + '", "first_name" : "' + first_name + '", "last_name" : "' + last_name + '", "phone_number" : "' + phone_number + '", "email" : "' + email + '"}';
+	var jsonPayload = '{"userId" : "' + userId + '", "contactId" : "' + contactId + '", "first_name" : "' + first_name + '", "last_name" : "' + last_name + '", "phone_number" : "' + phone_number + '", "email" : "' + email + '"}';
 	var url = urlBase + '/EditContact.' + extension;
 
 	console.log(jsonPayload)
