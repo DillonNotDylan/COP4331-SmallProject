@@ -116,6 +116,8 @@ function display_contacts(f_name, l_name, phone_number, email, id)
 	
 		var first_name_field = document.getElementById("edit_email");
 		first_name_field.setAttribute('value', email);
+
+		edit_button();
 		
 		return;
 	}
@@ -192,7 +194,7 @@ function edit_contact()
 {
 	close_edit_page()
 	
-	var index = document.getElementById('contact_index').innerHTML;
+	var index = document.getElementById('contact'+ id.toString()).innerHTML;
 	console.log("index is: " + index);
 
 	for(var i = 0; i < (jsonObject.results.length / 5); i++)
