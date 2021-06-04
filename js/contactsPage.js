@@ -117,7 +117,7 @@ function display_contacts(f_name, l_name, phone_number, email, id)
 		var first_name_field = document.getElementById("edit_email");
 		first_name_field.setAttribute('value', email);
 		
-		// edit_contact(id);
+		edit_contact(id);
 		
 		return;
 	}
@@ -192,6 +192,8 @@ function add_contact()
 
 function edit_contact(id)
 {
+	console.log("edit_constact start");
+	
 	close_edit_page()
 	
 	var index = document.getElementById('contact_index').innerHTML;
@@ -204,6 +206,8 @@ function edit_contact(id)
 			break;
 		}
 	}
+	
+	console.log("edit_constact past the start");
 
 	var userId = jsonObject.results[i];
 	var first_name = jsonObject.results[i+1];
