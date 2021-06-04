@@ -198,10 +198,10 @@ function edit_contact()
 
 	
 	var contactId = index;
-	var first_name = document.getElementById("edit_first_name").innerHTML;
-	var last_name = document.getElementById("edit_last_name").innerHTML;
-	var phone_number = document.getElementById("edit_phone_number").innerHTML;
-	var email = document.getElementById("edit_email").innerHTML;
+	var first_name = document.getElementById("edit_first_name").value;
+	var last_name = document.getElementById("edit_last_name").value;
+	var phone_number = document.getElementById("edit_phone_number").value;
+	var email = document.getElementById("edit_email").value;
 
 	// Prepare variables for the API
 	var jsonPayload = '{"userId" : "' + userId + '", "contactId" : "' + contactId + '", "first_name" : "' + first_name + '", "last_name" : "' + last_name + '", "phone_number" : "' + phone_number + '", "email" : "' + email + '"}';
