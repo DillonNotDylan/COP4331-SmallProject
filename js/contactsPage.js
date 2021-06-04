@@ -125,9 +125,8 @@ function display_contacts(f_name, l_name, phone_number, email, id)
 	delete_button.setAttribute('id', 'delete_contact_button');
 	delete_button.onclick = function()
 	{
-		// Add functionality to ask user if they are sure about deleting a contact
-		delete_contact(id);
-
+		if(confirm("Are you sure you want to delete this contact?"))
+			delete_contact(id);
 		return;
 	}
 	delete_button.innerHTML = 'delete';
@@ -274,6 +273,7 @@ function delete_contact(id)
 				
 				if(jsonObject.error == "")
 				{
+					
 					//alert("Your contact was deleted, please refresh the page");
 					document.getElementById('contact'+ id.toString()).remove();
 				}
