@@ -196,7 +196,7 @@ function edit_contact(id)
 	
 	close_edit_page()
 	
-	var index = document.getElementById('contact_index').innerHTML;
+	var index = document.getElementById('contact'+ id.toString()).innerHTML;
 	console.log("index is: " + index);
 
 	for(var i = 0; i < (jsonObject.results.length / 5); i++)
