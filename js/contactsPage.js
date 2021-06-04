@@ -231,6 +231,7 @@ function edit_contact()
 				if(jsonObject.error == "")
 				{
 					alert("Your contact was edited, please refresh the page");
+
 				}
 				else
 				{
@@ -273,7 +274,8 @@ function delete_contact(id)
 				
 				if(jsonObject.error == "")
 				{
-					alert("Your contact was deleted, please refresh the page");
+					//alert("Your contact was deleted, please refresh the page");
+					document.getElementById('contact'+ id.toString()).remove();
 				}
 				else
 				{
