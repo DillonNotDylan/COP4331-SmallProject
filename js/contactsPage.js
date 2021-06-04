@@ -82,7 +82,7 @@ function display_contacts(f_name, l_name, phone_number, email, id)
 	var contact_address = document.createElement('h3');
 	contact_address.className = 'contact_address';
 	var contactId = document.createElement('p');
-	contactId.setAttribute('id', 'contact_index');
+	contactId.setAttribute('id', 'contact_index' + id);
 	contactId.style.display = 'none';
 	contactId.innerHTML = id;
 
