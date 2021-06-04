@@ -144,6 +144,18 @@ function display_contacts(f_name, l_name, phone_number, email, id)
 	contact_container.appendChild(contact_element_3);
 	contact_container.appendChild(contactId);
 	contact_container.appendChild(edit_delete_div);
+	
+	// Adding submit-edit button to overlay
+	var edit_overlay = document.getElementsByClassName('overlay-content');
+	var submit_button = document.createElement('button');
+	submit_button.onclick = function()
+	{
+		edit_contact(id);
+		
+		return;
+	}
+	submit_button.innerHTML = 'submit';
+	edit_overlay.appendChild(submit_button);
 }
 
 function add_contact()
