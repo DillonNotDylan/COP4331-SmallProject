@@ -154,7 +154,7 @@ function display_contacts(f_name, l_name, phone_number, email, id)
 		
 		return;
 	}
-	submit_button.innerHTML = 'submit';
+	submit_button.innerHTML = 'finalize edit';
 	edit_overlay.appendChild(submit_button);
 }
 
