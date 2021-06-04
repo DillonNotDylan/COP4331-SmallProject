@@ -84,6 +84,7 @@ function display_contacts(f_name, l_name, phone_number, email, id)
 	contact_address.className = 'contact_address';
 	var contactId = document.createElement('p');
 	contactId.setAttribute('id', 'contact_index'+ id.toString());
+	contactId.setAttribute('class', 'contact_index');
 	contactId.style.display = 'none';
 	contactId.innerHTML = id;
 
@@ -200,13 +201,13 @@ function add_contact()
 	closeNav()
 }
 
-function edit_contact(id)
+function edit_contact()
 {
 	console.log("edit_constact start");
 	
 	close_edit_page()
 	
-	var index = document.getElementById('contact'+ id.toString()).innerHTML;
+	var index = document.getElementsByClassName('contact_index').innerHTML;
 	console.log("index is: " + index);
 
 	for(var i = 0; i < (jsonObject.results.length / 5); i++)
