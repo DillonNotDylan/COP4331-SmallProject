@@ -58,6 +58,7 @@ function display_contacts(f_name, l_name, phone_number, email, id)
 	// Create a new contact card
 	var contact_set = document.getElementById('contact_set');
 	var contact_container = document.createElement('div');
+	contact_container.setAttribute('id', 'contact'+ id.toString())
 	contact_container.className = 'contact_container';
 	contact_set.appendChild(contact_container);
 
@@ -249,7 +250,7 @@ function delete_contact()
 {
 	// close_edit_page()
 	
-	var contactId = document.getElementById('contact_index').innerHTML;
+	var contactId = document.getElementById('contact').innerHTML;
 	console.log("contactId is: " + contactId);
 
 	// Prepare variables for the API
