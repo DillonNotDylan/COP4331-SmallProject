@@ -126,7 +126,7 @@ function display_contacts(f_name, l_name, phone_number, email, id)
 	delete_button.onclick = function()
 	{
 		// Add functionality to ask user if they are sure about deleting a contact
-		delete_contact();
+		delete_contact(id);
 
 		return;
 	}
@@ -246,15 +246,14 @@ function edit_contact()
 	}
 }
 
-function delete_contact()
+function delete_contact(id)
 {
 	// close_edit_page()
-	
-	var contactId = document.getElementById('contact').innerHTML;
-	console.log("contactId is: " + contactId);
+	var contactId = document.getElementById('contact'+ id.toString()).innerHTML;
+	console.log("contactId is: " + id);
 
 	// Prepare variables for the API
-	var jsonPayload = '{"contactId" : "' + contactId  + '"}';
+	var jsonPayload = '{"contactId" : "' + id  + '"}';
 	var url = urlBase + '/DeleteContact.' + extension;
 
 	console.log(jsonPayload)
