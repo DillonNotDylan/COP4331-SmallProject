@@ -1,43 +1,25 @@
 <?php
+
 	header('Access-Control-Allow-Origin: *');
 	header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 	header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, X-Requested-With");
 
-	// parse input JSON and connect to database
 	$inData = json_decode(file_get_contents('php://input'), true);
-	$conn = new mysqli("localhost", "small", "password", "smallproject"); 
 
-	$id = $indata['contactId'];
-	$fName = $inData['first_name'];
-	$lName = $inData['last_name'];
-	$pNumber = $inData['phone_number'];
-	$addy = $inData['address'];
-	$email = $inData['email'];
+	$conn = new mysqli("localhost", "small", "password", "smallproject");
 
-	// check that we are properly connected
-	if ($conn->connect_error) 
+	if ($conn->connect_error)
+	{
 		returnWithError($conn->connect_error);
-
-	$argum = "UPDATE ContactList SET FirstName = '$fName', LastName = '$lName', PhoneNumber = '$pNumber', Email = '$email' WHERE ContactID = '$id'";
-
-	if ($conn->query($argum) === TRUE)
-		returnWithInfo($fName, $lName, $id);
-	else
-		returnWithError("Error: couldn't update");
-	
-	
-	
-
-	function returnWithInfo($firstName, $lastName, $id)
-	{
-		$retValue = '{"id":' . $id . ',"firstName":"' . $firstName . '","lastName":"' . $lastName . '","error":""}';
-		sendResultInfoAsJson($retValue);
 	}
-
-	function returnWithError($err)
+	else
 	{
-		$retValue = '{"error:"' . $err . '}';
-		sendResultInfoAsJson($retValue);
+		$stmt = $conn->prepare("UPDATE ContactList SET FirstName='?', LastName='?', PhoneNumber='?', Email='?' WHERE ContactID=?");
+		$stmt->bind_param("sssss", $inData["first_name"], $inData["last_name"], $inData["phone_number"], $inData["email"], $inData["contactId"]);
+		$stmt->execute();
+		$stmt->close();
+		$conn->close();
+		returnWithError("");
 	}
 
 	function sendResultInfoAsJson($obj)
@@ -45,4 +27,11 @@
 		header('Content-type: application/json');
 		echo $obj;
 	}
+
+	function returnWithError($err)
+	{
+		$retValue = '{"error":"' . $err . '"}';
+		sendResultInfoAsJson($retValue);
+	}
+
 ?>
