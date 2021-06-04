@@ -202,7 +202,7 @@ function edit_contact()
 	var contactId = index;
 	var first_name = document.getElementById("edit_first_name").innerHTML;
 	var last_name = document.getElementById("edit_last_name").innerHTML;
-	var phone_number = document.getElementById("edit_fphone_number").innerHTML;
+	var phone_number = document.getElementById("edit_phone_number").innerHTML;
 	var email = document.getElementById("edit_address").innerHTML;
 
 	// Prepare variables for the API
