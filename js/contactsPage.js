@@ -104,18 +104,24 @@ function display_contacts(f_name, l_name, phone_number, email, id)
 	{
 		document.getElementById("myNav2").style.width = "100%";
 
-		var first_name_field = document.getElementById("edit_first_name");
-		first_name_field.setAttribute('placeholder', f_name);
-	
-		var first_name_field = document.getElementById("edit_last_name");
-		first_name_field.setAttribute('placeholder', l_name);
-	
-		var first_name_field = document.getElementById("edit_phone_number");
-		first_name_field.setAttribute('placeholder', phone_number);
-	
-		var first_name_field = document.getElementById("edit_email");
-		first_name_field.setAttribute('placeholder', email);
-
+		if (document.getElementById("edit_first_name") == "" || document.getElementById("edit_last_name") == "" || document.getElementById("edit_phone_number") == "" || document.getElementById("edit_email") == "")
+		{
+			alert("Please fill out the fields to edit...");
+		}
+		else
+		{
+			var first_name_field = document.getElementById("edit_first_name");
+			first_name_field.setAttribute('placeholder', f_name);
+		
+			var first_name_field = document.getElementById("edit_last_name");
+			first_name_field.setAttribute('placeholder', l_name);
+		
+			var first_name_field = document.getElementById("edit_phone_number");
+			first_name_field.setAttribute('placeholder', phone_number);
+		
+			var first_name_field = document.getElementById("edit_email");
+			first_name_field.setAttribute('placeholder', email);
+		}
 		return;
 	}
 	edit_button.innerHTML = 'edit';
