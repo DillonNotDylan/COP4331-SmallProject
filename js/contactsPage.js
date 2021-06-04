@@ -192,9 +192,7 @@ function add_contact()
 function edit_contact()
 {
 	console.log("edit_constact start");
-	
-	close_edit_page()
-	
+		
 	var index = document.getElementsByClassName('contact_index')[0].innerHTML;
 	console.log("index is: " + index);
 
@@ -210,6 +208,7 @@ function edit_contact()
 	var url = urlBase + '/EditContact.' + extension;
 
 	console.log(jsonPayload)
+	close_edit_page()
 
 	// Attempt a connection to the API
 	var xhr = new XMLHttpRequest();
