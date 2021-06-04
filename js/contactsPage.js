@@ -117,6 +117,8 @@ function display_contacts(f_name, l_name, phone_number, email, id)
 		var first_name_field = document.getElementById("edit_email");
 		first_name_field.setAttribute('value', email);
 		
+		edit_contact(id);
+		
 		return;
 	}
 	edit_button.innerHTML = 'edit';
@@ -188,7 +190,7 @@ function add_contact()
 	closeNav()
 }
 
-function edit_contact()
+function edit_contact(id)
 {
 	close_edit_page()
 	
@@ -207,10 +209,10 @@ function edit_contact()
 	var first_name = jsonObject.results[i+1];
 	var last_name = jsonObject.results[i]+2;
 	var phone_number = jsonObject.results[i+3];
-	var address = jsonObject.results[i+4];
+	var email = jsonObject.results[i+4];
 
 	// Prepare variables for the API
-	var jsonPayload = '{"userId" : "' + userId + '", "first_name" : "' + first_name + '", "last_name" : "' + last_name + '", "phone_number" : "' + phone_number + '", "address" : "' + address + '"}';
+	var jsonPayload = '{"userId" : "' + userId + '", "contactId" : "' + id + '", "first_name" : "' + first_name + '", "last_name" : "' + last_name + '", "phone_number" : "' + phone_number + '", "email" : "' + email + '"}';
 	var url = urlBase + '/EditContact.' + extension;
 
 	console.log(jsonPayload)
