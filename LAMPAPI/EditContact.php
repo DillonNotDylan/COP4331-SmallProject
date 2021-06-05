@@ -26,7 +26,7 @@
 		$stmt->execute();
 		$stmt->close();
 		$conn->close();
-		returnWithError("debug check");
+		returnWithError("");
 	}
 
 	function sendResultInfoAsJson($obj)
