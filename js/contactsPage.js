@@ -192,14 +192,13 @@ function edit_contact()
 {
 	console.log("edit_constact start");
 	
-	var index = document.getElementsByClassName('contact_index').innerHTML;
 	var contactId = document.getElementById("edit_index").value;
-	console.log("index is: " + index + ", contactId is: " + contactId);
+	console.log("userId is: " + userId + ", contactId is: " + contactId);
 	
-	var first_name = document.getElementById("edit_first_name").innerHTML;
-	var last_name = document.getElementById("edit_last_name").innerHTML;
-	var phone_number = document.getElementById("edit_fphone_number").innerHTML;
-	var email = document.getElementById("edit_address").innerHTML;
+	var first_name = document.getElementById("edit_first_name").value;
+	var last_name = document.getElementById("edit_last_name").value;
+	var phone_number = document.getElementById("edit_fphone_number").value;
+	var email = document.getElementById("edit_address").value;
 	
 	// Prepare variables for the API
 	var jsonPayload = '{"userId" : "' + userId + '", "contactId" : "' + contactId + '", "first_name" : "' + first_name + '", "last_name" : "' + last_name + '", "phone_number" : "' + phone_number + '", "email" : "' + email + '"}';
