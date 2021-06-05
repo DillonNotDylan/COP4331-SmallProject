@@ -90,9 +90,9 @@ function display_contacts(f_name, l_name, phone_number, email, id, container_num
 	contactId.style.display = 'none';
 	contactId.innerHTML = id;
 	var containerId = document.createElement('p');
-	contactId.setAttribute('id', 'container_index');
-	contactId.style.display = 'none';
-	contactId.innerHTML = container_number;
+	containerId.setAttribute('id', 'container_index');
+	containerId.style.display = 'none';
+	containerId.innerHTML = container_number;
 
 	// Add text to the elements of the contact card
 	var contact_name_text = document.createTextNode(f_name + " " + l_name);
