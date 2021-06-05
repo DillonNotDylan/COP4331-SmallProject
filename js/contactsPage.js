@@ -5,6 +5,7 @@ var userId = 0;
 var firstName = "";
 var lastName = "";
 var jsonObject;
+var searchObject;
 
 function search_contacts()
 {
@@ -35,6 +36,8 @@ function search_contacts()
 			{
 				var jsonObject = JSON.parse( xhr.responseText ); // This JSON object is the response from the API
 				var index_helper = 0;
+				
+				searchObject = jsonObject;
 				
 				console.log(jsonObject.results);
 								
@@ -195,7 +198,7 @@ function edit_contact()
 {
 	console.log("edit_constact start");
 	
-	var contactId = document.getElementById("edit_index").value;
+	var contactId = document.getElementsByClassName("overlay_contents").value;
 	console.log("userId is: " + userId + ", contactId is: " + contactId);
 	
 	var first_name = document.getElementById("edit_first_name").value;
@@ -374,4 +377,5 @@ function open_edit_page()
 function close_edit_page()
 {
 	document.getElementById("myNav2").style.width = "0%";
+	console.log(searchObject);
 }
