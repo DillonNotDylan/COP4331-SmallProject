@@ -14,12 +14,19 @@
 	}
 	else
 	{
-		$stmt = $conn->prepare("UPDATE ContactList SET FirstName='?', LastName='?', PhoneNumber='?', Email='?' WHERE ContactID='?' AND UserID='?'");
-		$stmt->bind_param("ssssss", $inData["first_name"], $inData["last_name"], $inData["phone_number"], $inData["email"], $inData["contactId"], $inData["userId"]);
+
+		$firstName = $inData["first_name"];
+		$lastName = $inData["last_name"];
+		$phoneNumber = $inData["phone_number"];
+		$email = $inData["email"];
+		$contactId = $inData["contactId"];
+
+		$stmt = $conn->prepare("UPDATE ContactList SET FirstName='$firstName', LastName='$lastName', PhoneNumber='$phoneNumber', Email='$email' WHERE ContactID='$contactId'");
+		// $stmt->bind_param("sssss", $inData["first_name"], $inData["last_name"], $inData["phone_number"], $inData["email"], $inData["contactId"]);
 		$stmt->execute();
 		$stmt->close();
 		$conn->close();
-		returnWithError("");
+		returnWithError("debug check");
 	}
 
 	function sendResultInfoAsJson($obj)
