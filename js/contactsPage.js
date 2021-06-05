@@ -201,15 +201,7 @@ function add_contact()
 
 function edit_contact()
 {			
-	var containerId = document.getElementById("edit_index").value;
-	console.log("edit_index is: " + containerId);
-	
-	var index = (4*containerId) + 0;
-	
-	var contactId = searchObject.results[index]
-	console.log("contact_id is:" + contactId);
-	
-	
+	var contactId = document.getElementById("edit_index").value;
 	var first_name = document.getElementById("edit_first_name").value;
 	var last_name = document.getElementById("edit_last_name").value;
 	var phone_number = document.getElementById("edit_phone_number").value;
