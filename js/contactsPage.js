@@ -10,6 +10,7 @@ var searchObject;
 function search_contacts()
 {
 	// Capture the text from the search bars to use for querying
+	
 	var first_name = document.getElementById("first_name_searchbar").value;
 	var last_name = document.getElementById("last_name_searchbar").value;
 
@@ -58,8 +59,22 @@ function search_contacts()
 
 function display_contacts(f_name, l_name, phone_number, email, id, container_number)
 {
+
 	// Create a new contact card
-	var contact_set = document.getElementById('contact_set');
+
+
+
+	
+
+	if (document.getElementById('contact_set'))
+	{
+		window.location.href = "contactsPage.html";
+		display_contacts(f_name, l_name, phone_number, email, id, container_number);
+		// var first_name = document.getElementById("first_name_searchbar").value;
+		// var last_name = document.getElementById("last_name_searchbar").value;
+	}
+
+
 	var contact_container = document.createElement('div');
 	contact_container.setAttribute('id', 'contact'+ id.toString())
 	contact_container.className = 'contact_container';
