@@ -200,11 +200,15 @@ function add_contact()
 }
 
 function edit_contact()
-{
-	console.log("edit_constact start");
+{			
+	var containerId = document.getElementById("container_index").value;
+	console.log("container_index is: " + containerId);
 	
-	var contactId = document.getElementsByClassName("overlay_contents").value;
-	console.log("userId is: " + userId + ", contactId is: " + contactId);
+	var index = (4*containerId) + 0;
+	
+	var contactId = searchObject.results[index]
+	console.log("contact_id is:" + contactId);
+	
 	
 	var first_name = document.getElementById("edit_first_name").value;
 	var last_name = document.getElementById("edit_last_name").value;
