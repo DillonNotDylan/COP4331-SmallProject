@@ -116,6 +116,9 @@ function display_contacts(f_name, l_name, phone_number, email, id)
 	
 		var first_name_field = document.getElementById("edit_email");
 		first_name_field.setAttribute('value', email);
+		
+		var first_name_field = document.getElementById("edit_index");
+		first_name_field.setAttribute('value', id);
 				
 		return;
 	}
