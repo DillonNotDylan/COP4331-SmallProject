@@ -19,7 +19,7 @@
 		$stmt->execute();
 		$stmt->close();
 		$conn->close();
-		returnWithError("");
+		returnWithError($stmt);
 	}
 
 	function sendResultInfoAsJson($obj)
