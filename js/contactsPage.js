@@ -201,8 +201,8 @@ function add_contact()
 
 function edit_contact()
 {			
-	var containerId = document.getElementById("container_index").value;
-	console.log("container_index is: " + containerId);
+	var containerId = document.getElementById("edit_index").value;
+	console.log("edit_index is: " + containerId);
 	
 	var index = (4*containerId) + 0;
 	
