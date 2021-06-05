@@ -14,7 +14,7 @@
 	}
 	else
 	{
-		$stmt = $conn->prepare("UPDATE ContactList SET FirstName='?', LastName='?', PhoneNumber='?', Email='?' WHERE ContactID=?");
+		$stmt = $conn->prepare("UPDATE ContactList SET FirstName='?', LastName='?', PhoneNumber='?', Email='?' WHERE ContactID='?'");
 		$stmt->bind_param("sssss", $inData["first_name"], $inData["last_name"], $inData["phone_number"], $inData["email"], $inData["contactId"]);
 		$stmt->execute();
 		$stmt->close();
