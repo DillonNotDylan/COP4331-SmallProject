@@ -10,7 +10,7 @@ var searchObject;
 function search_contacts()
 {
 	// Capture the text from the search bars to use for querying
-	
+	document.getElementById('contact_set').innerHTML = "";
 	var first_name = document.getElementById("first_name_searchbar").value;
 	var last_name = document.getElementById("last_name_searchbar").value;
 
@@ -61,8 +61,6 @@ function display_contacts(f_name, l_name, phone_number, email, id, container_num
 {
 
 	// Create a new contact card
-
-	document.getElementById('contact_set').innerHTML = "";
 	
 	var contact_container = document.createElement('div');
 	contact_container.setAttribute('id', 'contact'+ id.toString());
