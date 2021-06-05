@@ -234,8 +234,8 @@ function edit_contact()
 				}
 				else
 				{
-					console.log(jsonObject.error);
 					alert("Something went wrong, please try to edit that contact again");
+					// console.log(jsonObject.error);
 				}
 			}
 		};
