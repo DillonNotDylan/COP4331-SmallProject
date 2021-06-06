@@ -1,6 +1,6 @@
 // insert init's here
 var firstN, lastN, userN, passO, passT;
-var urlBase = "http:/www.thebest-group28.xyz/LAMPAPI";
+var urlBase = "LAMPAPI";
 var extension = 'php';
 
 function addUser()
@@ -17,6 +17,8 @@ function addUser()
 	var jsonPayload = '{"first" : "' + first + '", "last" : "' + last + '", "user" : "' + user + '", "pass" : "' + hash +'"}';
 	console.log("jsonPayLoad: " + jsonPayload);
 	var url = urlBase + '/Register.' + extension;
+	
+	console.log("url is: " + url);
 
 	// Attempt a connection to the API
 	var xhr = new XMLHttpRequest();
@@ -49,6 +51,7 @@ function addUser()
 	catch(err)
 	{
 		document.getElementById("loginResult").innerHTML = err.message;
+		console.log("We could not add that user at this time");
 	}
 }
 
