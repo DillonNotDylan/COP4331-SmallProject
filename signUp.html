@@ -1,19 +1,22 @@
 <html>
-	<meta charset="utf-8">
-	<head>
-	<title> Account Sign Up</title>
-	<script type="text/javascript" src="js/register.js"></script>
-	<script type="text/javascript" src="js/md5.js"></script>
-	<script type = "text/javascript" src = "js/code.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<link href="css/signUp.css" rel="stylesheet">
+    <head>
+		<title>Contact Manager V37.2</title>
+		<script type="text/javascript" src="js/md5.js"></script>
+		<script type="text/javascript" src="js/code.js"></script>
+		<link href="css/loginStyles.css" rel="stylesheet">	
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 	</head>
-	
-	<body>
-		<div class = "signUpDiv">
-			<h1 class="title"> Sign Up <h3> 
-			<p id = "outp"></p>
-				
+
+    <body>
+        <h1 class="title" id="title">Simple Contact</h1>
+		<h3 class="subtitle" id="subtitle">Connecting others since 2021</h3>
+
+		<div class="signUpDiv" id="signUpDiv">
+			<h3 id="divTitle"> Sign Up </h3> 
+			<p id="outp"></p>
+
 			<form class="signUpForm">
 				<input type = "text" placeholder = " First Name" id = "first" required> </input>
 				<br>
@@ -30,12 +33,15 @@
 				<input type = "password" placeholder = " Re-enter Password" id = "repass" required> </input>
 				<br>
 
+				<hr style="margin-bottom: 3rem;">
+
 				<button type="button" class="signUpButton" id="signUpButton" class="buttons" onclick="checkValid();"> Sign Up </button>
 			</form>
-			
+
 			<div class="login-link">
 				<p>Already have an Account? <a href = "index.html"> Login </a> </p>
 			</div>
 		</div>
-	</body>
+    </body>
 </html>
+
