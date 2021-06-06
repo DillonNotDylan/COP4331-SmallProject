@@ -1,124 +1,34 @@
-<html lang="en">
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">		
-		<link rel="stylesheet" href="css/contactPageStyle.css">
-		<script type="text/javascript" src="js/contactsPage.js"></script>
-
-		<!-- Logic to make sure the user is still signed in -->
-
-		<script type="text/javascript">
-			document.addEventListener('DOMContentLoaded', function() 
-			{
-				readCookie();
-			}, false);
-		</script>
-
-		<!-- Tab Identifier -->
-		<title>Simple Contacts</title>
+<html>
+    <head>
+		<title>Contact Manager V37.2</title>
+		<script type="text/javascript" src="js/md5.js"></script>
+		<script type="text/javascript" src="js/code.js"></script>
+		<link href="css/loginStyles.css" rel="stylesheet">	
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 	</head>
 
-	<body>
-		<!-- The navbar at the top of the page -->
-		<div id="navbar">
-			<ul>
-				<li style="float: left; margin-right: 2rem;">
-					<!-- Project Name -->
-					<h1 >Simple Contacts</h1>
-				</li>
-				
-				<li>
-					<div id="loggedInDiv">
-						<h3 id="userName"></h3>
-					</div>
-				</li>
-				
-				<li style="float: right; margin-top: -1.75rem;">			
-					<!-- Add Contact Button -->
-					<button class="openbtn" type="button" onclick="openNav()" >Add Contact</button>
-					
-					<!-- Log Out Button -->
-					<button type="button" id="logoutButton" class="openbtn" onclick="doLogout();"> Log Out </button>
-				</li>
-			</ul>
-		</div>
-		
-		<!-- The add contact overlay -->
-		<div id="myNav" class="overlay">
-				<!-- Button to close the overlay navigation -->
-				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <body>
+        <h1 class="title" id="title">Simple Contact</h1>
+		<h3 class="subtitle" id="subtitle">Connecting others since 2021</h3>
+        
+        <div class="loginDiv" id="loginDiv">
+			<input type="text" class="loginName" id="loginName" required="required" placeholder="Username" /><br/>
+
+			<input type="password" class="loginPassword" id="loginPassword" required="required" placeholder="Password"/><br/>
 			
-				<!-- Overlay content -->
-				<div class="overlay-content">
-					<input id="add_first_name" type="text" placeholder=" First Name ...">
-					<input id="add_last_name" type="text" placeholder=" Last Name ...">
-					<input id="add_phone_number" type="text" placeholder=" Phone Number ...">
-					<input id="add_email" type="text" placeholder=" Address ...">
-					<button type="button" onclick="add_contact()">Submit</button>
-				</div>
-		</div>
+			<hr>
 
-		<!-- The edit contact overlay -->
-		<div id="myNav2" class="overlay">
-			<!-- Button to close the overlay navigation -->
-			<a href="javascript:void(0)" class="closebtn" onclick="close_edit_page()">&times;</a>
-		
-			<!-- Overlay content -->
-			<div class="overlay-content">
-				<input id="edit_first_name" type="text">
-				<input id="edit_last_name" type="text">
-				<input id="edit_phone_number" type="text">
-				<input id="edit_email" type="text">
-				<input id="edit_index" type="text" style="display: none;">
-				<button type="button" onclick="edit_contact()">Submit</button>
+			<div class="buttons">
+				<button type="button" class="loginButton" id="loginButton" class="buttons" onclick="doLogin();"> login </button>
 			</div>
-		</div>
 
-		<!-- Search bar and Add Contact button -->
-		<div class="search_container" id="search_container">
-			<div class="searchbars" id="searchbars">
-				<input type="text" placeholder=" First Name ..." id="first_name_searchbar" />
-				<input type="text" placeholder=" Last Name ..." id="last_name_searchbar" />	
-				<button class="add_contact_button" type="button" onclick="search_contacts();">Search</button>
+			<div class="signUp-link">
+				<p>Need an Account? Click <a href = "signUp.html"> here </a></p>
 			</div>
-		</div>
-		
-		<!-- Container for contact information -->
-		<div id="contact_set">
 
-			<!-- For Example Only -->
-
-			<!--
-			<div class="contact_container">
-				<h2 class="contact_name">Contact Name</h2>
-				<br>
-				<img class="contact_image" src="images/default-user-image.png" alt="">
-				
-				<div class="contact_element">
-					<h3 class="contact_phone_number">Contact Number</h3>
-				</div>
-				
-				<div class="contact_element">
-					<h3 class="contact_email">Contact Email</h3>
-				</div>
-
-				<div class="contact_element">
-					<h3 class="contact_address">Contact Address</h3>
-				</div>
-
-				<p style="display: none;" id="contact_index" ></p>
-
-				<div class="edit_delete_div">
-					<button id="edit_contact_button" onclick="open_edit_page()">edit</button>
-					<button id="delete_contact_button" onclick="open_delete_page()">delete</button>
-				</div>
-			</div>
-			-->
-			
-		</div>
-		
-		<!-- Javascript Logic -->
-		<script src="js/app.js"></script>
-	</body>
+			<span class="loginResult"></span>
+        </div>
+    </body>
 </html>
