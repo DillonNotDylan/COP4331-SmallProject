@@ -234,13 +234,28 @@ hr
 	}
 }
 
-@media only screen and (max-width: 100px)
+@media only screen and (max-width: 1000px)
 {
 	.loginDiv
 	{
 		width: 70%;
 		font-size: 5rem;
-	}	
+	}
+	
+	.loginName
+	{
+		font-size: 5rem;
+	}
+	
+	.loginPassword
+	{
+		font-size: 5rem;
+	}
+	
+	.loginButton
+	{
+		font-size: 5rem;
+	}
 		
 	.signUpDiv
 	{
