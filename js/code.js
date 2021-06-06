@@ -1,4 +1,4 @@
-var urlBase = '/LAMPAPI';
+var urlBase = 'http://www.thebest-group28.xyz/LAMPAPI';
 var extension = 'php';
 
 var userId = 0;
@@ -37,7 +37,7 @@ function doLogin()
 		
 				if( userId < 1 )
 				{		
-					document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
+					alert("That login information was either incorrect, or you do not have an account yet.");
 					return;
 				}
 		
