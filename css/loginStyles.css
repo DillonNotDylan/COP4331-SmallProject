@@ -57,14 +57,6 @@ body
 	box-shadow: 0rem 0rem 4rem rgb(36, 36, 36);
 }
 
-@media only screen and (max-width: 1000px)
-{
-	.loginDiv
-	{
-		width: 70%;
-	}
-}
-
 .loginName
 {
 	font-size: 2rem;
@@ -227,4 +219,12 @@ hr
 	font-family: Lucida, serif;
 	text-shadow: 0px 0px 5px black;
 	margin-top: -5%;
+}
+
+@media only screen and (max-width: 1200px)
+{
+	.loginDiv
+	{
+		width: 70%;
+	}
 }
