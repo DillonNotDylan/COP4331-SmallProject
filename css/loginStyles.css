@@ -227,4 +227,29 @@ hr
 	{
 		width: 70%;
 	}
+	
+	.signUpDiv
+	{
+		width: 70%;
+	}
+}
+
+@media only screen and (max-width: 100px)
+{
+	.loginDiv
+	{
+		width: 70%;
+		font-size: 5rem;
+	}	
+		
+	.signUpDiv
+	{
+		width: 70%;
+	}
+	
+	#user, #pass, #repass, #first, #last
+	{
+		font-size: 3rem;
+	}
+	
 }
