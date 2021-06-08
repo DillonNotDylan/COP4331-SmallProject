@@ -7,7 +7,7 @@ body
     color: white;
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
-    background-image: linear-gradient(120deg, #453f97, #804480);
+    background-image: linear-gradient(120deg, #a8a8a8, #92bcce);
 }
 
 #navbar ul 
@@ -16,8 +16,9 @@ body
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    background-color: #0185dd;
     height: 4rem;
+    margin-bottom: 1.5rem;
 }
   
 #navbar li 
@@ -38,7 +39,7 @@ body
     z-index: 1; 
     left: 0;
     top: 0;
-    background-color: rgba(0,0,0, 0.9);
+    background-color: rgba(8, 17, 31, 0.9);
     overflow-x: hidden;
 }
   
@@ -47,12 +48,13 @@ body
     display: grid;
     position: relative;
     top: 30%;
-    width: 30%;
+    width: 35rem;
     text-align: center;
     margin: auto;
-    border-radius: 3rem;
+    border-radius: none;
     padding: 0.4rem;
     background-color: rgb(223, 223, 223);
+    box-shadow: 0rem 0rem 1.5rem rgb(173, 173, 173);
 }
 
 .overlay-content #add_first_name
@@ -62,15 +64,29 @@ body
 
 .overlay-content input, button
 {
-    border-radius: 5px;
     font-size: 2rem;
-    border-color: blue;
+    border: none;
     border-radius: 0.5rem;
     justify-content: center; 
     align-items: center;
     padding: 1rem;
     margin: auto;
     margin-bottom: 1rem;
+    border-bottom: 0.15rem solid #acacac;
+}
+
+.overlay-content button
+{
+    background-color: white;
+    border-bottom: none;
+    border-radius: 0.5rem;
+    box-shadow: 0.15rem 0.15rem 0.15rem rgb(51, 51, 51);
+}
+
+.overlay-content button:hover
+{
+    color: white;
+    background-color: rgb(0, 110, 255);
 }
   
 .overlay a 
@@ -113,8 +129,8 @@ body
 .openbtn
 {
     font-size: 1rem;
-	border-color: blue;
-	border-radius: 0.5rem;
+	border:none;
+	border-radius: 0.25rem;
     padding: 0.5rem;
     margin-top: -2rem;
     margin-right: 1rem;
@@ -137,12 +153,12 @@ body
 
 .search_container input, .search_container button
 {
-    border-radius: 5px;
+    border-radius: 2rem;
     padding: 0.4rem;
     font-size: 2rem;
     background: white;
-    border-color: blue;
-    border-radius: 0.5rem;
+    border: none;
+    border-radius: .5rem;
 }
 
 .search_container
@@ -156,8 +172,14 @@ body
 {
     display: grid;
     margin: auto;
-    margin-top: 0.5rem;
-    text-align: center;
+    margin-top: .5rem;
+    margin-right: 2rem;
+    width: 20rem;
+    height: 3.75rem;
+    text-align: left;
+    float: left;
+    padding-left: 1rem;
+    padding-right: -5rem;
 }
 
 .search_container .add_contact_button
@@ -182,40 +204,43 @@ body
 
 .search_container button
 {
-    color: #c065c0;
+    color: #0077ff;
     cursor: pointer;
-	padding: 1.55rem;
+	padding-left: 1.55rem;
+    padding-right: 1.55rem;
 	margin-left: 1rem;
     background: white;
     transition: all 0.3s ease;
     float: bottom;
+    font-family: 'Poppins', sans-serif;
 }
 
 .search_container button:hover
 {
     color: white;
-    background: rgb(18, 206, 206);
+    background: #0099ff;
 }
 
 .contact_container
 {
     border-radius: 15px;
-    background-color: rgb(223, 223, 223);
+    background-image: linear-gradient(120deg, #e4f7ff, #e2e2e2);
     display: grid;
     align-items: center; 
     justify-content: center;
     width: 25rem;
-    height: 25rem;
+    height: 28rem;
     margin: 0 auto;
     color: rgb(53, 53, 53);
-    border-radius: 3rem;
-    border: 2px solid purple;
-    box-shadow: 1.5rem 1.5rem 1rem rgb(46, 46, 46);
+    border-radius: 0rem;
+    border: none;
+    box-shadow: 0rem 0rem 1.5rem rgb(46, 46, 46);
 }
 
 .contact_container .contact_name
 {
     margin-bottom: -2rem;
+    font-size: 2.5rem;
 }
 
 .edit_delete_div
@@ -231,12 +256,25 @@ body
 {
     font-size: 1.5rem;
     padding: 0.5rem;
+    color: rgb(71, 71, 71);
+    background-color: #00ffbf;
+    border-radius: .5rem;
+    border: 2px;
+    border-color: black;
+    border-bottom: none;
+    box-shadow: .25rem .25rem .25rem rgb(46, 46, 46);
 }
 
 .edit_delete_div #delete_contact_button
 {
     font-size: 1.5rem;
     padding: 0.5rem;
+    color: rgb(51, 51, 51);
+    background-color: rgb(255, 94, 0);
+    margin-left: 2rem;
+    border-radius: .5rem;
+    border-bottom: none;
+    box-shadow: .25rem .25rem .25rem rgb(46, 46, 46);
 }
 
 .edit_delete_div #edit_contact_button:hover
@@ -277,7 +315,7 @@ body
 
 .contact_container
 {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
 
 .contact_container h2
@@ -303,7 +341,6 @@ body
     margin-top: -4rem;
     display: grid;
     width: auto;
-    text-align: center;
 }
 
 .contact_element h3
