@@ -11,19 +11,17 @@ function search_contacts()
 {
 	// Capture the text from the search bars to use for querying
 	document.getElementById('contact_set').innerHTML = "";
-	var first_name = document.getElementById("first_name_searchbar").value;
-	var last_name = document.getElementById("last_name_searchbar").value;
+	var search = document.getElementById("first_name_searchbar").value;
 
 	// Refresh the page so we don't see multiple of the same search
 	// location.reload();
     
 	// FOR TESTING ONLY (NOT SECURE): Display the search bar entries in the console for debugging 
-	console.log("UID: " + userId + " / First: " + first_name + " / Last: " + last_name);
+	console.log("UID: " + userId + " / First: " + search );
 
 	// Prepare variables for the API
-	var jsonPayload = '{"userId" : "' + userId + '", "first_name" : "' + first_name + '", "last_name" : "' + last_name + '"}';
+	var jsonPayload = '{"userId" : "' + userId + '", "search" : "' + search + '"}';
 	var url = urlBase + '/SearchContacts.' + extension;
-
 	// Attempt a connection to the API
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
