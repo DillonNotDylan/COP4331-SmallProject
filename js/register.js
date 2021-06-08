@@ -40,7 +40,7 @@ function addUser()
 				else
 				{
 					// list server error detailing reasoning for glitch
-					document.getElementById("loginResult").innerHTML = "Error: " + jsonObject.error;
+					displayError(jsonObject.error);
 					return;
 				}
 			}
