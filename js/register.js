@@ -39,8 +39,8 @@ function addUser()
 				}
 				else
 				{
-					alert("Error: Server Error, please Try Again");
-					return;
+					// list server error detailing reasoning for glitch
+					document.getElementById("loginResult").innerHTML = jsonObject.error;
 				}
 			}
 		};
