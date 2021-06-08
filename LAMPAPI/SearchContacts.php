@@ -14,7 +14,7 @@
 	{
 		$stmt = $conn->prepare("SELECT * FROM ContactList WHERE UserID = ? AND FirstName LIKE ? AND LastName LIKE ?");
 		$firstName = "%" . $inData["first_name"] . "%";
-		$lastName = "%" . $inData["last_name"] . "%";
+		$lastName = "%" . $inData["first_name"] . "%";
 		$stmt->bind_param("sss", $inData["userId"], $firstName, $lastName);
 		$stmt->execute();
 		
