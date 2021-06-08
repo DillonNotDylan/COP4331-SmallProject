@@ -40,7 +40,8 @@ function addUser()
 				else
 				{
 					// list server error detailing reasoning for glitch
-					document.getElementById("loginResult").innerHTML = jsonObject.error;
+					document.getElementById("loginResult").innerHTML = "Error: " + jsonObject.error;
+					return;
 				}
 			}
 		};
@@ -55,6 +56,11 @@ function addUser()
 	}
 }
 
+function displayError(errMsg)
+{
+	document.getElementById("outp").innerHTML = errMsg;
+}
+
 function checkValid()
 {
 
@@ -66,16 +72,16 @@ function checkValid()
 
 	if (userN.length * passO.length * passT.length <= 0)
 	{
-		document.getElementById("outp").innerHTML = "Warning: Please insert value for required fields";
+		displayError("Please insert values for the required fields");
 	}
 
 	if (hashO != hashT)
 	{
-		document.getElementById("outp").innerHTML = "Warning: passwords don't match!";
+		displayError("Warning: Passwords don't match");
 		return;
 	}
 
-	document.getElementById("outp").innerHTML = "";
+	displayError("");
 	addUser();
 
 }
