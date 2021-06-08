@@ -14,6 +14,21 @@
 	}
 	else
 	{
+		// get number of entries with current user
+		$first = $conn->prepare("SELECT * FROM Users WHERE Username = ?");
+		$first->bind_param("s", $inData["user"]);
+		$first->execute();
+		$first->store_result();
+
+		// if user Exists, return and stop
+		if ($first->num_rows != 0)
+		{
+				returnWithError("User Already Exists");
+				return;
+		}
+		$first->close();
+				
+		// otherwise continue and add to table
 		$stmt = $conn->prepare("INSERT INTO Users (FirstName, LastName, Username, Password) VALUES (?, ?, ?, ?)");
 		$stmt->bind_param("ssss", $inData["first"], $inData["last"], $inData["user"], $inData["pass"]);
 		$stmt->execute();
