@@ -68,6 +68,7 @@ function display_contacts(f_name, l_name, phone_number, email, id, container_num
 	// Create the elements of a contact card
 	var contact_name = document.createElement('h2');
 	contact_name.className = 'contact_name';
+	contact_name.setAttribute('id', 'contact_name'+ id.toString());
 	var contact_image = document.createElement('image');
 	contact_image.setAttribute('source', src='images/default-user-image.png');
 	contact_image.className = 'contact_image';
@@ -81,10 +82,14 @@ function display_contacts(f_name, l_name, phone_number, email, id, container_num
 	edit_delete_div.className = 'edit_delete_div';
 	var contact_phone_number = document.createElement('h3');
 	contact_phone_number.className = 'contact_phone_number';
+	contact_phone_number.setAttribute('id', 'contact_phone_number'+ id.toString());
+
 	var contact_email = document.createElement('h3');
 	contact_email.className = 'contact_email';
+	contact_email.setAttribute('id', 'contact_email'+ id.toString());
 	var contact_address = document.createElement('h3');
 	contact_address.className = 'contact_address';
+	contact_address.setAttribute('id', 'contact_address'+ id.toString());
 	var contactId = document.createElement('p');
 	contactId.setAttribute('id', 'contact_index'+ id.toString());
 	contactId.style.display = 'none';
@@ -229,8 +234,10 @@ function edit_contact()
 				
 				if(jsonObject.error == "")
 				{
-					alert("Your contact was edited, please refresh the page");
-
+					console.log(contactId.toString()); // for testing
+					document.getElementById('contact_name' + contactId.toString()).innerHTML = first_name + ' ' + last_name;
+					document.getElementById('contact_phone_number' + contactId.toString()).innerHTML = phone_number;
+					document.getElementById('contact_email' + contactId.toString()).innerHTML = email;
 				}
 				else
 				{
