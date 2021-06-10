@@ -134,7 +134,7 @@ function display_contacts(f_name, l_name, phone_number, email, id, container_num
 				
 		return;
 	}
-	edit_button.innerHTML = '<span class="material-icons md-36">edit</span>';
+	edit_button.innerHTML = '<span class="material-icons md-46">edit</span>';
 	edit_delete_div.appendChild(edit_button);
 	
 	var delete_button = document.createElement('button');
@@ -145,7 +145,7 @@ function display_contacts(f_name, l_name, phone_number, email, id, container_num
 			delete_contact(id);
 		return;
 	}
-	delete_button.innerHTML = '<span class="material-icons md-36">delete_outline</span>';
+	delete_button.innerHTML = '<span class="material-icons md-46">delete_outline</span>';
 	edit_delete_div.appendChild(delete_button);
 
 	// Add the elements to the contact card
@@ -250,8 +250,8 @@ function edit_contact()
 				{
 					console.log(contactId.toString()); // for testing
 					document.getElementById('contact_name' + contactId.toString()).innerHTML = first_name + ' ' + last_name;
-					document.getElementById('contact_phone_number' + contactId.toString()).innerHTML = '<span class="material-icons">phone</span>:	' + phone_number;
-					document.getElementById('contact_email' + contactId.toString()).innerHTML = '<span class="material-icons">mail_outline</span>:	' + email;
+					document.getElementById('contact_phone_number' + contactId.toString()).innerHTML = '<span class="material-icons md-36">phone</span>:	' + phone_number;
+					document.getElementById('contact_email' + contactId.toString()).innerHTML = '<span class="material-icons md-36">mail_outline</span>:	' + email;
 				}
 				else
 				{
