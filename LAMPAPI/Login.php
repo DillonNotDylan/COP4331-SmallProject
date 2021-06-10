@@ -23,15 +23,15 @@
 			if ($row["Password"] == $inData["password"])
 			{
 				$id = $row['UserID'];
+				$stmt->close();
 				$stmt = $conn->prepare("UPDATE Users SET DateLastLoggedIn = now() WHERE UserID = '$id'");
 				$stmt->execute();
-				
-				returnWithInfo($row['FirstName'], $row['LastName'], $row['UserID']);
 				$stmt->close();
+				returnWithInfo($row['FirstName'], $row['LastName'], $row['UserID']);
 			}
 			else
 			{
-				returnWithError("Password Invalid");
+				returnWithError("Password Invalid" + "ROW: "+$row["Password"] + "*********" + "inData: " + $inData["password"]);
 			}
 		}
 		else
