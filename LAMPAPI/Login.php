@@ -20,7 +20,7 @@
 
 		if ($row = $result->fetch_assoc())
 		{
-			if ($row["Password"] == $inData["password"])
+			if ($row["Password"] == md5($inData["password"]))
 			{
 				$id = $row['UserID'];
 				$stmt = $conn->prepare("UPDATE Users SET DateLastLoggedIn = now() WHERE UserID = '$id'");
