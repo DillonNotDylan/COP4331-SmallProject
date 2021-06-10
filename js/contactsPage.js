@@ -244,8 +244,8 @@ function edit_contact()
 				{
 					console.log(contactId.toString()); // for testing
 					document.getElementById('contact_name' + contactId.toString()).innerHTML = first_name + ' ' + last_name;
-					document.getElementById('contact_phone_number' + contactId.toString()).innerHTML = phone_number;
-					document.getElementById('contact_email' + contactId.toString()).innerHTML = email;
+					document.getElementById('contact_phone_number' + contactId.toString()).innerHTML = '<span class="material-icons p-2">phone</span>:	' + phone_number;
+					document.getElementById('contact_email' + contactId.toString()).innerHTML = '<span class="material-icons">mail_outline</span>:	' + email;
 				}
 				else
 				{
