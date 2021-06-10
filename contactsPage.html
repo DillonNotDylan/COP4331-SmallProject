@@ -5,6 +5,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">		
 		<link rel="stylesheet" href="css/contactPageStyle.css">
 		<script type="text/javascript" src="js/contactsPage.js"></script>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 		<!-- Logic to make sure the user is still signed in -->
 
@@ -25,7 +26,7 @@
 			<ul>
 				<li style="float: left; margin-right: 2rem;">
 					<!-- Project Name -->
-					<h1 >Simple Contact</h1>
+					<h1 ><span class="material-icons">contact_phone</span> Simple Contact</h1>
 				</li>
 				
 				<li>
@@ -36,10 +37,11 @@
 				
 				<li style="float: right; margin-top: -1.75rem;">			
 					<!-- Add Contact Button -->
-					<button class="openbtn" type="button" onclick="openNav()" >Add Contact</button>
+					<button class="openbtn" type="button" onclick="openNav()" ><span class="material-icons">person_add</span>Add Contact</button>
 					
 					<!-- Log Out Button -->
-					<button type="button" id="logoutButton" class="openbtn" onclick="doLogout();"> Log Out </button>
+					<i class="fa-solid fa-user"></i>
+					<button type="button" id="logoutButton" class="openbtn" onclick="doLogout();"> <span class="material-icons">logout</span></button>
 				</li>
 			</ul>
 		</div>
@@ -54,7 +56,7 @@
 					<input id="add_first_name" type="text" placeholder=" First Name ...">
 					<input id="add_last_name" type="text" placeholder=" Last Name ...">
 					<input id="add_phone_number" type="text" placeholder=" Phone Number ...">
-					<input id="add_email" type="text" placeholder=" Address ...">
+					<input id="add_email" type="text" placeholder=" Email ...">
 					<button type="button" onclick="add_contact()">Submit</button>
 				</div>
 		</div>
@@ -71,7 +73,7 @@
 				<input id="edit_phone_number" type="text">
 				<input id="edit_email" type="text">
 				<input id="edit_index" type="text" style="display: none;">
-				<button type="button" onclick="edit_contact()">Submit</button>
+				<button type="button" onclick="edit_contact()"><span class="material-icons">done</span></button>
 			</div>
 		</div>
 
@@ -79,7 +81,7 @@
 		<div class="search_container" id="search_container">
 			<div class="searchbars" id="searchbars">
 				<input type="text" placeholder=" search ..." id="first_name_searchbar" />
-				<button class="add_contact_button" type="button" onclick="search_contacts();">Search</button>
+				<button class="add_contact_button" type="button" onclick="search_contacts();"><span class="material-icons">search</span></button>
 			</div>
 		</div>
 		

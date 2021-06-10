@@ -83,10 +83,12 @@ function display_contacts(f_name, l_name, phone_number, email, id, container_num
 	var contact_phone_number = document.createElement('h3');
 	contact_phone_number.className = 'contact_phone_number';
 	contact_phone_number.setAttribute('id', 'contact_phone_number'+ id.toString());
+	contact_phone_number.innerHTML = '<span class="material-icons p-2">phone</span>:	';
 
 	var contact_email = document.createElement('h3');
 	contact_email.className = 'contact_email';
 	contact_email.setAttribute('id', 'contact_email'+ id.toString());
+	contact_email.innerHTML = '<span class="material-icons">mail_outline</span>:	';
 	var contact_address = document.createElement('h3');
 	contact_address.className = 'contact_address';
 	contact_address.setAttribute('id', 'contact_address'+ id.toString());
@@ -106,8 +108,6 @@ function display_contacts(f_name, l_name, phone_number, email, id, container_num
 	contact_phone_number.appendChild(contact_phone_number_text);
 	var contact_email_text = document.createTextNode(email);
 	contact_email.appendChild(contact_email_text);
-	var contact_address_text = document.createTextNode("789 leaf village");
-	contact_address.appendChild(contact_address_text);
 
 	// Add buttons
 	var edit_button = document.createElement('button');
@@ -134,7 +134,7 @@ function display_contacts(f_name, l_name, phone_number, email, id, container_num
 				
 		return;
 	}
-	edit_button.innerHTML = 'edit';
+	edit_button.innerHTML = '<span class="material-icons">edit</span>';
 	edit_delete_div.appendChild(edit_button);
 	
 	var delete_button = document.createElement('button');
@@ -145,7 +145,7 @@ function display_contacts(f_name, l_name, phone_number, email, id, container_num
 			delete_contact(id);
 		return;
 	}
-	delete_button.innerHTML = 'delete';
+	delete_button.innerHTML = '<span class="material-icons">delete_outline</span>';
 	edit_delete_div.appendChild(delete_button);
 
 	// Add the elements to the contact card
