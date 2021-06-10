@@ -15,6 +15,13 @@ function doLogin()
 	var password = document.getElementById("loginPassword").value;
 	var hash = md5( password );
 	
+	if (login == "" || password == "")
+	{
+		alert("Please fill out empty fields");
+		return;
+	}
+
+
 //	document.getElementById("loginResult").innerHTML = "";
 
 	var jsonPayload = '{"login" : "' + login + '", "password" : "' + hash + '"}';
@@ -37,7 +44,9 @@ function doLogin()
 		
 				if( userId < 1 )
 				{		
-					alert("That login information was either incorrect, or you do not have an account yet.");
+					console.log(jsonObject);
+					console.log(jsonObject.error);
+					alert(jsonObject.error);
 					return;
 				}
 		
@@ -47,7 +56,6 @@ function doLogin()
 				saveCookie();
 	
 				window.location.href = "contactsPage.html";
-				
 			}
 		};
 		xhr.send(jsonPayload);

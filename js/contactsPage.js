@@ -83,12 +83,12 @@ function display_contacts(f_name, l_name, phone_number, email, id, container_num
 	var contact_phone_number = document.createElement('h3');
 	contact_phone_number.className = 'contact_phone_number';
 	contact_phone_number.setAttribute('id', 'contact_phone_number'+ id.toString());
-	contact_phone_number.innerHTML = '<span class="material-icons p-2">phone</span>:	';
+	contact_phone_number.innerHTML = '<span class="material-icons md-36">phone</span>:	';
 
 	var contact_email = document.createElement('h3');
 	contact_email.className = 'contact_email';
 	contact_email.setAttribute('id', 'contact_email'+ id.toString());
-	contact_email.innerHTML = '<span class="material-icons">mail_outline</span>:	';
+	contact_email.innerHTML = '<span class="material-icons md-36">mail_outline</span>:	';
 	var contact_address = document.createElement('h3');
 	contact_address.className = 'contact_address';
 	contact_address.setAttribute('id', 'contact_address'+ id.toString());
@@ -134,7 +134,7 @@ function display_contacts(f_name, l_name, phone_number, email, id, container_num
 				
 		return;
 	}
-	edit_button.innerHTML = '<span class="material-icons">edit</span>';
+	edit_button.innerHTML = '<span class="material-icons md-36">edit</span>';
 	edit_delete_div.appendChild(edit_button);
 	
 	var delete_button = document.createElement('button');
@@ -145,7 +145,7 @@ function display_contacts(f_name, l_name, phone_number, email, id, container_num
 			delete_contact(id);
 		return;
 	}
-	delete_button.innerHTML = '<span class="material-icons">delete_outline</span>';
+	delete_button.innerHTML = '<span class="material-icons md-36">delete_outline</span>';
 	edit_delete_div.appendChild(delete_button);
 
 	// Add the elements to the contact card
@@ -169,6 +169,12 @@ function add_contact()
 	var add_last_name = document.getElementById("add_last_name").value;
 	var add_phone_number = document.getElementById("add_phone_number").value;
 	var add_email = document.getElementById("add_email").value;
+
+	if (add_first_name == "" || add_last_name == "" || add_phone_number == "" || add_email == "")
+	{
+		alert("Please fill out fields");
+		return;
+	}
 
 	// Prepare variables for the API
 	var jsonPayload = '{"userId" : "' + userId + '", "first_name" : "' + add_first_name + '", "last_name" : "' + add_last_name + '", "phone_number" : "' + add_phone_number + '", "email" : "' + add_email +'"}';
@@ -244,7 +250,7 @@ function edit_contact()
 				{
 					console.log(contactId.toString()); // for testing
 					document.getElementById('contact_name' + contactId.toString()).innerHTML = first_name + ' ' + last_name;
-					document.getElementById('contact_phone_number' + contactId.toString()).innerHTML = '<span class="material-icons p-2">phone</span>:	' + phone_number;
+					document.getElementById('contact_phone_number' + contactId.toString()).innerHTML = '<span class="material-icons">phone</span>:	' + phone_number;
 					document.getElementById('contact_email' + contactId.toString()).innerHTML = '<span class="material-icons">mail_outline</span>:	' + email;
 				}
 				else

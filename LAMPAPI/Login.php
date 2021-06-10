@@ -20,16 +20,23 @@
 
 		if ($row = $result->fetch_assoc())
 		{
-			$id = $row['UserID'];
-			$stmt = $conn->prepare("UPDATE Users SET DateLastLoggedIn = now() WHERE UserID = '$id'");
-			$stmt->execute();
-			
-			returnWithInfo($row['FirstName'], $row['LastName'], $row['UserID']);
-			$stmt->close();
+			if ($row["Password"] == $inData["password"])
+			{
+				$id = $row['UserID'];
+				$stmt = $conn->prepare("UPDATE Users SET DateLastLoggedIn = now() WHERE UserID = '$id'");
+				$stmt->execute();
+				
+				returnWithInfo($row['FirstName'], $row['LastName'], $row['UserID']);
+				$stmt->close();
+			}
+			else
+			{
+				returnWithError("Password Invalid");
+			}
 		}
 		else
 		{
-			returnWithError("No Records Found");
+			returnWithError("Invalid Username");
 		}
 
 		$stmt->close();
