@@ -31,7 +31,7 @@
 			}
 			else
 			{
-				returnWithError("Password Invalid" + "ROW: "+$row["Password"] + "*********" + "inData: " + $inData["password"]);
+				returnWithError("Password Invalid" . "ROW: " . $row["Password"] . "*********" . "inData: " . $inData["password"]);
 			}
 		}
 		else
