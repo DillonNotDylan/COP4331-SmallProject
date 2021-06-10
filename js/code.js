@@ -44,9 +44,15 @@ function doLogin()
 		
 				if( userId < 1 )
 				{		
-					console.log(jsonObject);
-					console.log(jsonObject.error);
-					alert(jsonObject.error);
+					if (jsonObject.error == "Password Invalid")
+					{
+						document.getElementById("passE").innerHTML = "Invalid Password";
+					}
+
+					if (jsonObject.error == "Invalid Username")
+					{
+						document.getElementById("userE").innerHTML = "Invalid Username";
+					}
 					return;
 				}
 		
