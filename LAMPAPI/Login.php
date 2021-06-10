@@ -20,6 +20,9 @@
 
 		if ($row = $result->fetch_assoc())
 		{
+			$id = $row["UserID"]
+			$query = "UPDATE Users SET DateLastLoggedIn = now() WHERE UserID = '$id'";
+			$q_result = $conn->query($query);
 			returnWithInfo($row['FirstName'], $row['LastName'], $row['UserID']);
 		}
 		else

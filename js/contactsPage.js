@@ -188,9 +188,17 @@ function add_contact()
 			{
 				var jsonObject = JSON.parse( xhr.responseText ); // This JSON object is the response from the API
 			
-				if(jsonObject.error[0] == "")
+				if(jsonObject.error == "")
 				{
-					alert("Contact Added");
+					
+					search_contacts();
+					console.log(userId.toString());
+					alert("Contact Added Successfully");
+				}
+				else
+				{
+					alert("That contact already exists in your contact list!");
+					console.log(userId.toString());
 				}
 			}
 		};
