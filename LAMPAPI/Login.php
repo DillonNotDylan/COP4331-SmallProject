@@ -13,7 +13,6 @@
 	}
 	else
 	{
-		$hash = md5($inData["password"]);
 		$stmt = $conn->prepare("SELECT UserID, FirstName, LastName, Password FROM Users WHERE Username = ?");
 		$stmt->bind_param("s", $inData["login"]);
 		$stmt->execute();
@@ -21,7 +20,7 @@
 
 		if ($row = $result->fetch_assoc())
 		{
-			if ($row["Password"] == $hash)
+			if ($row["Password"] == $inData["password"])
 			{
 				$id = $row['UserID'];
 				$stmt = $conn->prepare("UPDATE Users SET DateLastLoggedIn = now() WHERE UserID = '$id'");
