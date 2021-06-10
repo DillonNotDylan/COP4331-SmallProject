@@ -243,6 +243,26 @@ hr
 	margin-top: -5%;
 }
 
+/* scrollbar width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* scrollbar Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+   
+/* scrollbar Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+  
+/* scrollbar Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
 @media only screen and (max-width: 1200px)
 {
 	.loginDiv
