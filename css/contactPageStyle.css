@@ -365,3 +365,24 @@ body
 .material-icons.md-24 { font-size: 24px; }
 .material-icons.md-36 { font-size: 36px; }
 .material-icons.md-46 { font-size: 46px; }
+
+/* scrollbar width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* scrollbar Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* scrollbar Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* scrollbar Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
