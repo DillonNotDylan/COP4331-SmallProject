@@ -353,9 +353,18 @@ body
 
 .contact_element h3
 {
+    font: 15pt;
     align-items: left; 
 	justify-content: left;
     margin: auto;
+}
+
+.contact_phone_number{
+    font-size: 25pt !important;
+}
+
+.contact_email{
+    font-size: 16pt;
 }
 
 .contact_element button
@@ -405,6 +414,14 @@ body
     position: relative;
     transform: translateY(-20%);
 }
+#deleteicon {
+    transform: translateY(0);
+}
+
+#editicon {
+    transform: translateY(0);
+}
+
 #searchicon {
     transform: translateY(0);
 }
