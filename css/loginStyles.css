@@ -5,7 +5,7 @@ body
 	color: white;
 	min-height: 100vh;
 	font-family: Arial, Helvetica, sans-serif;
-    background-image: linear-gradient(120deg, #e2e2e2, #b5e9ff);
+    background:#efefef;
 	overflow-y: auto;
 }
 
@@ -16,7 +16,7 @@ body
    	width: 100%;
 	margin-top: 4rem;
    	text-align: center;
-   	color: #0185dd;
+   	color: #003b63;
 }
 
 .subtitle
@@ -26,7 +26,7 @@ body
 	width: 100%;
 	margin-top: 1rem;
    	text-align: center;
-   	color: #0085dd;
+   	color: #003b63;
 }
 
 .inner-title
@@ -52,9 +52,9 @@ body
 	width: 30rem;
 	height: 30rem;
 	padding: 1rem;
-	background-color: rgb(255, 255, 255);
-	border: none;
-	box-shadow: 0rem 0rem 1.5rem rgb(32, 36, 58);
+	border-radius: 50px;
+	background: #efefef;
+	box-shadow: 0.25rem 0.25rem 1rem #8b8b8b, -1rem -1rem 1.5rem #ffffff;
 }
 
 .loginDiv p
@@ -67,8 +67,8 @@ body
 	font-size: 2rem;
 	border: none;
 	background-color: rgb(224, 224, 224);
-	padding-top: 0.25rem;
-	padding-bottom: 0.25rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 	margin-top: 2rem;
 }
 
@@ -77,20 +77,20 @@ body
 	font-size: 2rem;
 	border: none;
 	background-color: rgb(224, 224, 224);
-	padding-top: 0.25rem;
-	padding-bottom: 0.25rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 }
 
 input[type="text"],input[type="password"]
 {
-	border-radius: 0.3rem;
-	border-bottom: 0.15rem solid #acacac;
 	justify-self: center;
 	text-align: left;
 	width: 80%;
 	margin-bottom: 2%;
 	font-family: 'Ubuntu', sans-serif;
 	padding-left: 1rem;
+	border-radius: 1rem;
+	box-shadow: inset 0.25rem 0.25rem 0.25rem #8b8b8b, inset -1rem -1rem 5rem #ffffff;
 }
 
 hr
@@ -140,8 +140,8 @@ hr
 	padding: 0.5rem;
 	width: 50%;
 	margin-left: 25%;
-	margin-top: -0.5rem;
-	margin-bottom: 2rem;
+	margin-top: -1.75rem;
+	margin-bottom: 0.75rem;
 }
 
 .signUpButton:hover
@@ -182,9 +182,9 @@ hr
 	width: 30rem;
 	height: 45rem;
 	padding: 1rem;
-	background-color: rgb(255, 255, 255);
-	border: none;
-	box-shadow: 0rem 0rem 1.5rem rgb(32, 36, 58);
+	border-radius: 50px;
+	background: #efefef;
+	box-shadow: 0.25rem 0.25rem 1rem #8b8b8b, -1rem -1rem 1.5rem #ffffff;
 }
 
 #signUpHere
@@ -208,21 +208,22 @@ hr
 	justify-content: center;
 	border: none;
 	border-radius: 0.3rem;
-	padding-top: 0.25rem;
-	padding-bottom: 0.25rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 	background-color: rgb(224, 224, 224);
-	margin-bottom: 0.5rem;
-	border-bottom: 0.15rem solid #acacac;
+	border-radius: 1rem;
+	box-shadow: inset 0.25rem 0.25rem 0.25rem #8b8b8b, inset -2rem -2rem 5rem #ffffff;
+
 }
 
 #first
 {
-	margin-top: 4rem;
+	margin-top: 1rem;
 }
 
 #repass
 {
-	margin-bottom: 1.25rem;
+	margin-bottom: 0rem;
 }
 
 .login-Link
@@ -231,7 +232,7 @@ hr
 	font-size: 1rem;
 	display: grid;
 	justify-content: center;
-	margin-bottom: 2rem;
+	margin-bottom: 0rem;
 }
 
 #outp
