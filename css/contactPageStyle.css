@@ -368,11 +368,53 @@ body
 }
 
 /* Icons sizing */
-.material-icons.md-18 { font-size: 18px; }
-.material-icons.md-20 { font-size: 20px; }
-.material-icons.md-24 { font-size: 24px; }
-.material-icons.md-36 { font-size: 36px; }
-.material-icons.md-46 { font-size: 46px; }
+.material-icons { 
+    font-size: 18px; 
+    position: relative;
+    transform: translateY(15%);
+}
+
+.material-icons.md-18 { 
+    font-size: 18px; 
+    position: relative;
+    transform: translateY(20%);
+}
+.material-icons.md-20 { 
+    font-size: 20px;
+    position: relative;
+    transform: translateY(20%); 
+}
+.material-icons.md-24 { 
+    font-size: 24px; 
+    position: relative;
+    transform: translateY(20%);
+}
+.material-icons.md-36 { 
+    font-size: 36px; 
+    position: relative;
+    transform: translateY(20%);
+}
+.material-icons.md-46 { 
+    font-size: 46px; 
+    position: relative;
+    transform: translateY(20%);
+}
+
+.material-icons.md-46 { 
+    font-size: 46px; 
+    position: relative;
+    transform: translateY(-20%);
+}
+#searchicon {
+    transform: translateY(0);
+}
+
+#logout {
+    transform: translateY(5%);
+    font-size: 20px;
+    margin: auto;
+    position: relative;
+}
 
 /* scrollbar width */
 ::-webkit-scrollbar {
