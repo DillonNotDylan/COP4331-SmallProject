@@ -422,6 +422,10 @@ body
     transform: translateY(0);
 }
 
+#doneicon {
+    transform: translateY(0);
+}
+
 #searchicon {
     transform: translateY(0);
 }
