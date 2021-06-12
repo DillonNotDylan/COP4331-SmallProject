@@ -14,7 +14,7 @@
 	{
 		$stmt = $conn->prepare("SELECT * FROM ContactList WHERE UserID = ? AND (FirstName LIKE ? OR LastName LIKE ? OR PhoneNumber LIKE ? OR Email LIKE ?) LIMIT ? OFFSET ?");
 		$query = "%" . $inData["search"] . "%";
-		$stmt->bind_param("sssss", $inData["userId"], $query, $query, $query, $query, $inData["limit"], $inData["offset"]);
+		$stmt->bind_param("sssssss", $inData["userId"], $query, $query, $query, $query, $inData["limit"], $inData["offset"]);
 		$stmt->execute();
 		
 		$result = $stmt->get_result();
