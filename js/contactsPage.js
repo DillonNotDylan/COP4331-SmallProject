@@ -7,7 +7,7 @@ var lastName = "";
 var jsonObject;
 var searchObject;
 var offset = 0;
-var limit = 3;
+var limit = 6;
 
 
 function search_contacts()
