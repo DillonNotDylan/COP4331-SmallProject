@@ -11,15 +11,16 @@ function search_contacts()
 {
 	// Capture the text from the search bars to use for querying
 	document.getElementById('contact_set').innerHTML = "";
+	
 	var search = document.getElementById("first_name_searchbar").value;
 	var offset = 0;
-	var limit = 6;
+	var limit = 3;
 
 	// Refresh the page so we don't see multiple of the same search
 	// location.reload();
     
 	// FOR TESTING ONLY (NOT SECURE): Display the search bar entries in the console for debugging 
-	console.log("UID: " + userId + " / First: " + search + "Limit: " + limit + "Offset: " + offset );
+	console.log("UID: " + userId + " | Search: " + search + " | Limit: " + limit + " | Offset: " + offset );
 
 	// Prepare variables for the API
 	var jsonPayloadPre = {
@@ -49,11 +50,134 @@ function search_contacts()
 				
 				searchObject = jsonObject;
 				
+				$("#load").click(function(e) { // click event for load more
+					e.preventDefault();
+					offset += limit;
+					load_contacts(offset, limit);
+					
+					if (jsonObject == null)
+					{
+						document.getElementById("load").style.display = "none";
+					}
+				});
+
+				console.log("UID: " + userId + " | Search: " + search + " | Limit: " + limit + " | Offset: " + offset );
+
 				console.log(jsonObject.results);
+
+				if (jsonObject.results == undefined) 
+				{
+					document.getElementById("load").style.display = "none";
+					return;
+				}
+
+				// if ((jsonObject.results.length / 5) < 6)
+				// {
+				// 	document.getElementById("load").style.display = "none";
+				// }
+				// else
+				// {
+				// 	document.getElementById("load").style.display = "";
+				// }
+
 				for(var i = 0; i < (jsonObject.results.length / 5); i++)
 				{
 					display_contacts(jsonObject.results[i+1+index_helper], jsonObject.results[i+2+index_helper], jsonObject.results[i+3+index_helper], jsonObject.results[i+4+index_helper], jsonObject.results[i+0+index_helper], i);
 					index_helper = index_helper + 4;
+				}
+
+				if ((jsonObject.results.length / 5) < limit)
+				{
+					document.getElementById("load").style.display = "none";
+				}
+				else
+				{
+					document.getElementById("load").style.display = "block";
+					document.getElementById("load").style.margin = "20px auto";
+				}
+				
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("loginResult").innerHTML = err.message;
+	}
+}
+
+function load_contacts(offset , limit)
+{
+	// Capture the text from the search bars to use for querying
+	var search = document.getElementById("first_name_searchbar").value;
+	
+	// Refresh the page so we don't see multiple of the same search
+	// location.reload();
+    
+	// FOR TESTING ONLY (NOT SECURE): Display the search bar entries in the console for debugging 
+	console.log("UID: " + userId + " | Search: " + search + " | Limit: " + limit + " | Offset: " + offset );
+
+	// Prepare variables for the API
+	var jsonPayloadPre = {
+		"userId": userId,
+		"search": search,
+		"limit": limit,
+		"offset": offset
+	};
+
+	var jsonPayload = JSON.stringify(jsonPayloadPre);
+	
+	//'{"userId" : "' + userId + '", "search" : "' + search + '"}';
+	var url = urlBase + '/SearchContacts.' + extension;
+	// Attempt a connection to the API
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function()
+		{
+			// If we successfully connect, retrieve the information from the APIs query
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				var jsonObject = JSON.parse( xhr.responseText ); // This JSON object is the response from the API
+				var index_helper = 0;
+				
+				searchObject = jsonObject;
+				// offset += limit;
+				console.log("UID: " + userId + " | Search: " + search + " | Limit: " + limit + " | Offset: " + offset );
+
+				console.log(jsonObject.results);
+
+				if (jsonObject.results == undefined) 
+				{
+					document.getElementById("load").style.display = "none";
+					return;
+				}
+
+				// if ((jsonObject.results.length / 5) < 6)
+				// {
+				// 	document.getElementById("load").style.display = "none";
+				// }
+				// else
+				// {
+				// 	document.getElementById("load").style.display = "";
+				// }
+					
+				for(var i = 0; i < (jsonObject.results.length / 5); i++)
+				{
+					display_contacts(jsonObject.results[i+1+index_helper], jsonObject.results[i+2+index_helper], jsonObject.results[i+3+index_helper], jsonObject.results[i+4+index_helper], jsonObject.results[i+0+index_helper], i);
+					index_helper = index_helper + 4;
+				}
+
+				if ((jsonObject.results.length / 5) < limit)
+				{
+					document.getElementById("load").style.display = "none";
+				}
+				else
+				{
+					document.getElementById("load").style.display = "block";
+					document.getElementById("load").style.margin = "20px auto";
 				}
 			}
 		};
