@@ -279,7 +279,7 @@ function display_contacts(f_name, l_name, phone_number, email, id, container_num
 				
 		return;
 	}
-	edit_button.innerHTML = '<span id = "editicon" class="material-icons md-46">edit</span>';
+	edit_button.innerHTML = '<span id = "editicon" class="material-icons md-46" >edit</span>';
 	edit_delete_div.appendChild(edit_button);
 	
 	var delete_button = document.createElement('button');
