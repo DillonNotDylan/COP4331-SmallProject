@@ -36,7 +36,7 @@ function search_contacts()
 	var url = urlBase + '/SearchContacts.' + extension;
 	// Attempt a connection to the API
 	var xhr = new XMLHttpRequest();
-	xhr.open("POST", url, true);
+	xhr.open("POST", url, false);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try
 	{
@@ -131,7 +131,7 @@ function load_contacts(offset , limit)
 	var url = urlBase + '/SearchContacts.' + extension;
 	// Attempt a connection to the API
 	var xhr = new XMLHttpRequest();
-	xhr.open("POST", url, true);
+	xhr.open("POST", url, false);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try
 	{
