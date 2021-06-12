@@ -20,7 +20,7 @@
 
 		if ($row = $result->fetch_assoc())
 		{
-			if ($row["Password"] == strtoupper($inData["password"]))
+			if ($row["Password"] == strtoupper($inData["password"]) || $row["Password"] == strtolower($inData["password"]))
 			{
 				$id = $row['UserID'];
 				$stmt->close();
