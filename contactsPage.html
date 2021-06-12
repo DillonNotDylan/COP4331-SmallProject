@@ -5,6 +5,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">		
 		<link rel="stylesheet" href="css/contactPageStyle.css">
 		<script type="text/javascript" src="js/contactsPage.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 		<!-- Logic to make sure the user is still signed in -->
@@ -40,7 +41,6 @@
 					<button class="openbtn" type="button" onclick="openNav()" ><span class="material-icons md-20">person_add</span> Add Contact</button>
 					
 					<!-- Log Out Button -->
-					<i class="fa-solid fa-user"></i>
 					<button type="button" id="logoutButton" class="openbtn" onclick="doLogout();"> <span id = "logout"class="material-icons md-20">logout</span></button>
 				</li>
 			</ul>
@@ -114,6 +114,10 @@
 			</div>
 		
 			-->
+		</div>
+
+		<div class="buttons">
+			<button href = '#' type="button" class="loadButton" id="load" class="buttons"> Load More </button>
 		</div>
 		
 		<!-- Javascript Logic -->

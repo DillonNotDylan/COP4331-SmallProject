@@ -12,15 +12,26 @@ function search_contacts()
 	// Capture the text from the search bars to use for querying
 	document.getElementById('contact_set').innerHTML = "";
 	var search = document.getElementById("first_name_searchbar").value;
+	var offset = 0;
+	var limit = 6;
 
 	// Refresh the page so we don't see multiple of the same search
 	// location.reload();
     
 	// FOR TESTING ONLY (NOT SECURE): Display the search bar entries in the console for debugging 
-	console.log("UID: " + userId + " / First: " + search );
+	console.log("UID: " + userId + " / First: " + search + "Limit: " + limit + "Offset: " + offset );
 
 	// Prepare variables for the API
-	var jsonPayload = '{"userId" : "' + userId + '", "search" : "' + search + '"}';
+	var jsonPayloadPre = {
+		"userId": userId,
+		"search": search,
+		"limit": limit,
+		"offset": offset
+	};
+
+	var jsonPayload = JSON.stringify(jsonPayloadPre);
+	
+	//'{"userId" : "' + userId + '", "search" : "' + search + '"}';
 	var url = urlBase + '/SearchContacts.' + extension;
 	// Attempt a connection to the API
 	var xhr = new XMLHttpRequest();
@@ -39,7 +50,6 @@ function search_contacts()
 				searchObject = jsonObject;
 				
 				console.log(jsonObject.results);
-								
 				for(var i = 0; i < (jsonObject.results.length / 5); i++)
 				{
 					display_contacts(jsonObject.results[i+1+index_helper], jsonObject.results[i+2+index_helper], jsonObject.results[i+3+index_helper], jsonObject.results[i+4+index_helper], jsonObject.results[i+0+index_helper], i);
