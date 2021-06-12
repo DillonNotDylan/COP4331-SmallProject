@@ -6,6 +6,9 @@ var firstName = "";
 var lastName = "";
 var jsonObject;
 var searchObject;
+var offset = 0;
+var limit = 3;
+
 
 function search_contacts()
 {
@@ -13,13 +16,14 @@ function search_contacts()
 	document.getElementById('contact_set').innerHTML = "";
 	
 	var search = document.getElementById("first_name_searchbar").value;
-	var offset = 0;
-	var limit = 3;
+	
+	offset = 0;
 
 	// Refresh the page so we don't see multiple of the same search
 	// location.reload();
     
 	// FOR TESTING ONLY (NOT SECURE): Display the search bar entries in the console for debugging 
+	console.log("NEW SEARCH INITIATED...");
 	console.log("UID: " + userId + " | Search: " + search + " | Limit: " + limit + " | Offset: " + offset );
 
 	// Prepare variables for the API
@@ -50,17 +54,7 @@ function search_contacts()
 				
 				searchObject = jsonObject;
 				
-				$("#load").click(function(e) { // click event for load more
-					e.preventDefault();
-					offset += limit;
-					load_contacts(offset, limit);
-					
-					if (jsonObject == null)
-					{
-						document.getElementById("load").style.display = "none";
-					}
-				});
-
+				console.log("UPDATING OFFSET...");
 				console.log("UID: " + userId + " | Search: " + search + " | Limit: " + limit + " | Offset: " + offset );
 
 				console.log(jsonObject.results);
@@ -82,6 +76,9 @@ function search_contacts()
 
 				for(var i = 0; i < (jsonObject.results.length / 5); i++)
 				{
+					var id = jsonObject.results[i+0+index_helper];
+					if (document.getElementById("contact"+id) != undefined)
+						continue;
 					display_contacts(jsonObject.results[i+1+index_helper], jsonObject.results[i+2+index_helper], jsonObject.results[i+3+index_helper], jsonObject.results[i+4+index_helper], jsonObject.results[i+0+index_helper], i);
 					index_helper = index_helper + 4;
 				}
@@ -106,6 +103,18 @@ function search_contacts()
 	}
 }
 
+
+function load_more()
+{
+	offset += limit;
+	load_contacts(offset, limit);
+	
+	if (searchObject == null)
+	{
+		document.getElementById("load").style.display = "none";
+	}
+}
+
 function load_contacts(offset , limit)
 {
 	// Capture the text from the search bars to use for querying
@@ -115,6 +124,7 @@ function load_contacts(offset , limit)
 	// location.reload();
     
 	// FOR TESTING ONLY (NOT SECURE): Display the search bar entries in the console for debugging 
+	console.log("LOADING MORE CONTACTS...");
 	console.log("UID: " + userId + " | Search: " + search + " | Limit: " + limit + " | Offset: " + offset );
 
 	// Prepare variables for the API
@@ -145,6 +155,7 @@ function load_contacts(offset , limit)
 				
 				searchObject = jsonObject;
 				// offset += limit;
+				console.log("CONTACTS SUCCESSFULLY LOADED...");
 				console.log("UID: " + userId + " | Search: " + search + " | Limit: " + limit + " | Offset: " + offset );
 
 				console.log(jsonObject.results);
