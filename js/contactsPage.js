@@ -233,7 +233,8 @@ function display_contacts(f_name, l_name, phone_number, email, id, container_num
 	var contact_email = document.createElement('h3');
 	contact_email.className = 'contact_email';
 	contact_email.setAttribute('id', 'contact_email'+ id.toString());
-	contact_email.innerHTML = '<span class="material-icons md-36">mail_outline</span>:	';
+	contact_email.innerHTML = '<span class="material-icons md-36">mail_outline</span>:      '  + "<a href = 'mailto:'"+email+"'>" +email+"</a>";
+	
 	var contact_address = document.createElement('h3');
 	contact_address.className = 'contact_address';
 	contact_address.setAttribute('id', 'contact_address'+ id.toString());
@@ -251,8 +252,7 @@ function display_contacts(f_name, l_name, phone_number, email, id, container_num
 	contact_name.appendChild(contact_name_text);
 	var contact_phone_number_text = document.createTextNode(phone_number);
 	contact_phone_number.appendChild(contact_phone_number_text);
-	var contact_email_text = document.createTextNode(email);
-	contact_email.appendChild(contact_email_text);
+	
 
 	// Add buttons
 	var edit_button = document.createElement('button');
