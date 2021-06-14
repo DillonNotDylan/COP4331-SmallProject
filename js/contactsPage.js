@@ -558,7 +558,7 @@ function createCSV(inpJson)
 	var file = "";
 	
 	// format of csv = {last, first, phone, email}
-	for (var i = 0; i inpJson.length; i += 5)
+	for (var i = 0; i < inpJson.length; i += 5)
 	{
 		file += inpJson[i + 1] + ", " + inpJson[i + 2] + ", ";
 		file += inpJson[i + 3] + ", " + inpJson[i + 4] + "\n";
