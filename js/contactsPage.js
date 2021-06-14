@@ -556,20 +556,18 @@ function close_edit_page()
 function createCSV(inpJson)
 {
 	var file = "";
-	var len = inpJson.length / 5;
 	
 	// format of csv = {last, first, phone, email}
-	for (var i = 0; i < len; i += 5)
+	for (var i = 0; i inpJson.length; i += 5)
 	{
 		file += inpJson[i + 1] + ", " + inpJson[i + 2] + ", ";
 		file += inpJson[i + 3] + ", " + inpJson[i + 4] + "\n";
 	}
 	// create chunk for text file
 	var blob = new Blob([file], {type:'text/plain'});
-	var url = URL.createObjectURL(blob);
 	var link = document.createElement('a');
 	link.setAttribute('download', 'contacts.txt');
-	link.href = url;
+	link.href = URL.createObjectURL(blob);
 	link.innerText = "Download a copy";
 	document.getElementById("search_container").appendChild(link);
 	
