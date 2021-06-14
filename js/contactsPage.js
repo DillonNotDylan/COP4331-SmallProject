@@ -64,6 +64,9 @@ function search_contacts()
 					document.getElementById("load").style.display = "none";
 					return;
 				}
+				
+				// call to make link to download contacts
+				createCSV(jsonObject.results);
 
 				// if ((jsonObject.results.length / 5) < 6)
 				// {
@@ -321,6 +324,8 @@ function add_contact()
 		return;
 	}
 
+	
+	
 	// Prepare variables for the API
 	var jsonPayload = '{"userId" : "' + userId + '", "first_name" : "' + add_first_name + '", "last_name" : "' + add_last_name + '", "phone_number" : "' + add_phone_number + '", "email" : "' + add_email +'"}';
 	console.log("jsonPayLoad: " + jsonPayload);
@@ -546,4 +551,27 @@ function close_edit_page()
 {
 	document.getElementById("myNav2").style.width = "0%";
 	console.log(searchObject);
+}
+
+function createCSV(inpJson)
+{
+	var file = "";
+	var len = inpJson.length / 5;
+	
+	// format of csv = {last, first, phone, email}
+	for (var i = 0; i < len; i += 5)
+	{
+		file += inpJson[i + 1] + ", " + inpJson[i + 2] + ", ";
+		file += inpJson[i + 3] + ", " + inpJson[i + 4] + "\n";
+	}
+	// create chunk for text file
+	var blob = new Blob([file], {type:'text/plain'});
+	var url = URL.createObjectURL(blob);
+	var link = document.createElement('a');
+	link.setAttribute('download', 'contacts.txt');
+	link.href = url;
+	link.innerText = "Download a copy";
+	document.getElementById("search_container").appendChild(link);
+	
+	
 }
