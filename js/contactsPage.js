@@ -558,7 +558,7 @@ function createCSV(inpJson)
 	const bar = document.getElementById('search_container');
 	// check if node already created, then remove
 	if (bar.childNodes.length > 3)
-		bar.removeChild(bar.childNodes[4]);
+		bar.removeChild(bar.childNodes[3]);
 	
 	// create string
 	var file = "";
@@ -574,7 +574,7 @@ function createCSV(inpJson)
 	var blob = new Blob([file], {type:'text/plain'});
 	var url = URL.createObjectURL(blob);
 	var link = document.createElement('a');
-	link.setAttribute('download', 'contacts.csv');
+	link.setAttribute('download', "contacts.csv");
 	link.href = url;
 	link.innerText = "Download a copy";
 	bar.appendChild(link);
