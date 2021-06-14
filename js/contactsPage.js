@@ -445,7 +445,6 @@ function edit_contact()
 function delete_contact(id)
 {
 	// close_edit_page()
-	var contactId = document.getElementById('contact'+ id.toString()).innerHTML;
 	console.log("contactId is: " + id);
 
 	// Prepare variables for the API
