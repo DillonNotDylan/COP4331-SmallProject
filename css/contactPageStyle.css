@@ -238,7 +238,7 @@ body
     box-shadow: 0.25rem 0.25rem 0.75rem #8b8b8b, -0.15rem -0.15rem 0.5rem #ffffff;
 }
 
-.load:hover
+#load:hover
 {
     background: linear-gradient(145deg, #ececec, #ffffff);
     box-shadow: 0.25rem 0.25rem 0.75rem #8b8b8b, -0.15rem -0.15rem 0.5rem #ffffff;
