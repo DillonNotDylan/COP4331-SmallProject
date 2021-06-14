@@ -310,12 +310,14 @@ body
 {
     background-color: rgb(22, 177, 48);
     color: cornsilk;
+    box-shadow: 0.25rem 0.25rem 0.75rem #8b8b8b, -0.15rem -0.15rem 0.5rem #ffffff;
 }
 
 .edit_delete_div #delete_contact_button:hover
 {
     background-color: rgb(187, 30, 19);
     color: cornsilk;
+    box-shadow: 0.25rem 0.25rem 0.75rem #8b8b8b, -0.15rem -0.15rem 0.5rem #ffffff;
 }
 
 @media only screen and (max-width: 1000px)
