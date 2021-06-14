@@ -556,6 +556,7 @@ function close_edit_page()
 function createCSV(inpJson)
 {
 	var file = "";
+	var len = inpJson.length / 5;
 	
 	// format of csv = {last, first, phone, email}
 	for (var i = 0; i < inpJson.length; i += 5)
@@ -565,9 +566,10 @@ function createCSV(inpJson)
 	}
 	// create chunk for text file
 	var blob = new Blob([file], {type:'text/plain'});
+	var url = URL.createObjectURL(blob);
 	var link = document.createElement('a');
 	link.setAttribute('download', 'contacts.txt');
-	link.href = URL.createObjectURL(blob);
+	link.href = url;
 	link.innerText = "Download a copy";
 	document.getElementById("search_container").appendChild(link);
 	
