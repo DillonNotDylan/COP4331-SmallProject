@@ -49,7 +49,6 @@
 		<!-- The add contact overlay -->
 		<div id="myNav" class="overlay">
 				<!-- Button to close the overlay navigation -->
-				<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 			
 				<!-- Overlay content -->
 				<div class="overlay-content">
@@ -57,14 +56,17 @@
 					<input id="add_last_name" type="text" placeholder=" Last Name ...">
 					<input id="add_phone_number" type="text" placeholder=" Phone Number ...">
 					<input id="add_email" type="text" placeholder=" Email ...">
-					<button type="button" onclick="add_contact()"><span id = "doneicon" class="material-icons md-46">done</span></button>
+					<div class="">
+						<button type="button" onclick="add_contact()" class = "edit_contact_button" id = "edit_contact_button"><span id = "doneicon" class="material-icons md-46">done</span></button>
+						<button type="button" href="javascript:void(0)" class="delete_contact_button" id = "delete_contact_button" onclick="closeNav()"><span id = "doneicon" class="material-icons md-46">cancel</span></a>
+					</div>
 				</div>
 		</div>
 
 		<!-- The edit contact overlay -->
 		<div id="myNav2" class="overlay">
 			<!-- Button to close the overlay navigation -->
-			<a href="javascript:void(0)" class="closebtn" onclick="close_edit_page()">&times;</a>
+			
 		
 			<!-- Overlay content -->
 			<div class="overlay-content">
@@ -73,7 +75,12 @@
 				<input id="edit_phone_number" type="text">
 				<input id="edit_email" type="text">
 				<input id="edit_index" type="text" style="display: none;">
-				<button type="button" onclick="edit_contact()"><span id = "doneicon" class="material-icons md-46">done</span></button>
+
+				<div class="">
+					<button type="button" onclick="edit_contact()" class = "edit_contact_button" id = "edit_contact_button"><span id = "doneicon" class="material-icons md-46">done</span></button>
+					<button type="button" href="javascript:void(0)" class="delete_contact_button" id = "delete_contact_button" onclick="close_edit_page()"><span id = "doneicon" class="material-icons md-46">cancel</span></a>
+				</div>
+				
 			</div>
 		</div>
 

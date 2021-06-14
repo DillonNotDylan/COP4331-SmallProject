@@ -274,7 +274,7 @@ body
     margin-bottom: -2rem;
 }
 
-.edit_delete_div #edit_contact_button
+.edit_delete_div .edit_contact_button
 {
     font-size: 1.5rem;
     padding: 0.5rem;
@@ -306,7 +306,7 @@ body
     box-shadow: .25rem .25rem .25rem rgb(46, 46, 46);
 }
 
-.edit_delete_div #edit_contact_button:hover
+.edit_delete_div .edit_contact_button:hover
 {
     background-color: rgb(22, 177, 48);
     color: cornsilk;

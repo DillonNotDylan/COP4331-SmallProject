@@ -9,6 +9,11 @@ var searchObject;
 var offset = 0;
 var limit = 6;
 
+var edit_first = "";
+var edit_last = "";
+var edit_phone = "";
+var edit_email = "";
+var edit_id = "";
 
 function search_contacts()
 {
@@ -64,9 +69,6 @@ function search_contacts()
 					document.getElementById("load").style.display = "none";
 					return;
 				}
-				
-				// call to make link to download contacts
-				createCSV(jsonObject.results);
 
 				// if ((jsonObject.results.length / 5) < 6)
 				// {
@@ -207,6 +209,12 @@ function display_contacts(f_name, l_name, phone_number, email, id, container_num
 {
 
 	// Create a new contact card
+	edit_first = f_name;
+	edit_last = l_name;
+	edit_phone = phone_number;
+	edit_email = email;
+	edit_id = id;
+
 	
 	var contact_container = document.createElement('div');
 	contact_container.setAttribute('id', 'contact'+ id.toString());
@@ -236,8 +244,7 @@ function display_contacts(f_name, l_name, phone_number, email, id, container_num
 	var contact_email = document.createElement('h3');
 	contact_email.className = 'contact_email';
 	contact_email.setAttribute('id', 'contact_email'+ id.toString());
-	contact_email.innerHTML = '<span class="material-icons md-36">mail_outline</span>:      '  + "<a href = mailto:"+email+">" +email+"</a>";
-	
+	contact_email.innerHTML = '<span class="material-icons md-36">mail_outline</span>:	';
 	var contact_address = document.createElement('h3');
 	contact_address.className = 'contact_address';
 	contact_address.setAttribute('id', 'contact_address'+ id.toString());
@@ -255,30 +262,43 @@ function display_contacts(f_name, l_name, phone_number, email, id, container_num
 	contact_name.appendChild(contact_name_text);
 	var contact_phone_number_text = document.createTextNode(phone_number);
 	contact_phone_number.appendChild(contact_phone_number_text);
-	
+	var contact_email_text = document.createTextNode(email);
+	contact_email.appendChild(contact_email_text);
 
 	// Add buttons
 	var edit_button = document.createElement('button');
-	edit_button.setAttribute('id', 'edit_contact_button');
+	edit_button.setAttribute('id', 'edit_contact_button' + id.toString());
+	edit_button.setAttribute('class', 'edit_contact_button');
 	edit_button.onclick = function()
 	{
 		document.getElementById("myNav2").style.width = "100%";
 
-		
+		var name= document.getElementById("contact_name"+ id.toString()).innerHTML.split(" ");
+		var first = name[0];
+		var last = name[1];
 		var first_name_field = document.getElementById("edit_first_name");
-		first_name_field.setAttribute('value', f_name);
-	
-		var first_name_field = document.getElementById("edit_last_name");
-		first_name_field.setAttribute('value', l_name);
-	
-		var first_name_field = document.getElementById("edit_phone_number");
-		first_name_field.setAttribute('value', phone_number);
-	
-		var first_name_field = document.getElementById("edit_email");
-		first_name_field.setAttribute('value', email);
 		
-		var first_name_field = document.getElementById("edit_index");
-		first_name_field.setAttribute('value', id);
+		first_name_field.value = first;
+		//first_name_field.setAttribute('id', 'edit_first_name'+ id.toString());
+	
+		var last_name_field = document.getElementById("edit_last_name");
+		
+		last_name_field.value = last;
+
+		//first_name_field.setAttribute('id', 'edit_last_name'+ id.toString());
+	
+		var phone_number_field = document.getElementById("edit_phone_number");
+		
+		phone_number_field.value = document.getElementById("contact_phone_number"+ id.toString()).childNodes[2].nodeValue;
+		//first_name_field.setAttribute('id', 'edit_phone_number'+ id.toString());
+	
+		var email_field = document.getElementById("edit_email");
+		email_field.value = document.getElementById("contact_email"+ id.toString()).childNodes[2].nodeValue;
+		//first_name_field.setAttribute('id', 'edit_email'+ id.toString());
+		
+		var index_field = document.getElementById("edit_index");
+		index_field.value = document.getElementById("contact_index"+ id.toString()).innerHTML;
+		//first_name_field.setAttribute('id', 'edit_index'+ id.toString());
 				
 		return;
 	}
@@ -324,8 +344,6 @@ function add_contact()
 		return;
 	}
 
-	
-	
 	// Prepare variables for the API
 	var jsonPayload = '{"userId" : "' + userId + '", "first_name" : "' + add_first_name + '", "last_name" : "' + add_last_name + '", "phone_number" : "' + add_phone_number + '", "email" : "' + add_email +'"}';
 	console.log("jsonPayLoad: " + jsonPayload);
@@ -376,6 +394,7 @@ function edit_contact()
 	var phone_number = document.getElementById("edit_phone_number").value;
 	var email = document.getElementById("edit_email").value;
 	
+	
 	// Prepare variables for the API
 	var jsonPayload = '{"userId" : "' + userId + '", "contactId" : "' + contactId + '", "first_name" : "' + first_name + '", "last_name" : "' + last_name + '", "phone_number" : "' + phone_number + '", "email" : "' + email + '"}';
 	var url = urlBase + '/EditContact.' + extension;
@@ -398,10 +417,15 @@ function edit_contact()
 				
 				if(jsonObject.error == "")
 				{
-					console.log(contactId.toString()); // for testing
+					console.log("Editing ContactID: " + contactId.toString()); // for testing
 					document.getElementById('contact_name' + contactId.toString()).innerHTML = first_name + ' ' + last_name;
 					document.getElementById('contact_phone_number' + contactId.toString()).innerHTML = '<span class="material-icons md-36">phone</span>:	' + phone_number;
 					document.getElementById('contact_email' + contactId.toString()).innerHTML = '<span class="material-icons md-36">mail_outline</span>:	' + email;
+					// document.getElementById("edit_index").value =  "";
+					// document.getElementById("edit_first_name").value = "";
+					// document.getElementById("edit_last_name").value = "";
+					// document.getElementById("edit_phone_number").value = "";
+					// document.getElementById("edit_email").value = "";
 				}
 				else
 				{
@@ -551,33 +575,4 @@ function close_edit_page()
 {
 	document.getElementById("myNav2").style.width = "0%";
 	console.log(searchObject);
-}
-
-function createCSV(inpJson)
-{
-	const bar = document.getElementById('search_container');
-	// check if node already created, then remove
-	if (bar.childNodes.length > 3)
-		bar.removeChild(bar.childNodes[3]);
-	
-	// create string
-	var file = "";
-	
-	// format of csv = {last, first, phone, email} id is ignored
-	for (var i = 0; i < inpJson.length; i += 5)
-	{
-		file += inpJson[i + 1] + ", " + inpJson[i + 2] + ", ";
-		file += inpJson[i + 3] + ", " + inpJson[i + 4] + "\n";
-	}
-	
-	// create chunk for text file
-	var blob = new Blob([file], {type:'text/plain'});
-	var url = URL.createObjectURL(blob);
-	var link = document.createElement('a');
-	link.setAttribute('download', "contacts.csv");
-	link.href = url;
-	link.innerText = "Download a copy";
-	bar.appendChild(link);
-	
-	
 }
