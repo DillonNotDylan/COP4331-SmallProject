@@ -555,23 +555,29 @@ function close_edit_page()
 
 function createCSV(inpJson)
 {
-	var file = "";
-	var len = inpJson.length / 5;
+	const bar = document.getElementById('search_container');
+	// check if node already created, then remove
+	if (bar.childNodes.length > 3)
+		bar.removeChild(bar.childNodes[4]);
 	
-	// format of csv = {last, first, phone, email}
+	// create string
+	var file = "";
+	
+	// format of csv = {last, first, phone, email} id is ignored
 	for (var i = 0; i < inpJson.length; i += 5)
 	{
 		file += inpJson[i + 1] + ", " + inpJson[i + 2] + ", ";
 		file += inpJson[i + 3] + ", " + inpJson[i + 4] + "\n";
 	}
+	
 	// create chunk for text file
 	var blob = new Blob([file], {type:'text/plain'});
 	var url = URL.createObjectURL(blob);
 	var link = document.createElement('a');
-	link.setAttribute('download', 'contacts.txt');
+	link.setAttribute('download', 'contacts.csv');
 	link.href = url;
 	link.innerText = "Download a copy";
-	document.getElementById("search_container").appendChild(link);
+	bar.appendChild(link);
 	
 	
 }
