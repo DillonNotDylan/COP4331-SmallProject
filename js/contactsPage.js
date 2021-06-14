@@ -239,12 +239,12 @@ function display_contacts(f_name, l_name, phone_number, email, id, container_num
 	var contact_phone_number = document.createElement('h3');
 	contact_phone_number.className = 'contact_phone_number';
 	contact_phone_number.setAttribute('id', 'contact_phone_number'+ id.toString());
-	contact_phone_number.innerHTML = '<span class="material-icons md-36">phone</span>:	';
+	contact_phone_number.innerHTML = '<span class="material-icons md-36">phone</span>: ';
 
 	var contact_email = document.createElement('h3');
 	contact_email.className = 'contact_email';
 	contact_email.setAttribute('id', 'contact_email'+ id.toString());
-	contact_email.innerHTML = '<span class="material-icons md-36">mail_outline</span>:	';
+	contact_email.innerHTML = '<span class="material-icons md-36">mail_outline</span>: ';
 	var contact_address = document.createElement('h3');
 	contact_address.className = 'contact_address';
 	contact_address.setAttribute('id', 'contact_address'+ id.toString());
@@ -273,9 +273,9 @@ function display_contacts(f_name, l_name, phone_number, email, id, container_num
 	{
 		document.getElementById("myNav2").style.width = "100%";
 
-		var name= document.getElementById("contact_name"+ id.toString()).innerHTML.split(" ");
-		var first = name[0];
-		var last = name[1];
+		var name= document.getElementById("contact_name"+ id.toString()).innerHTML;
+		var first = name.substr(0,name.indexOf(' ')); 
+		var last = name.substr(name.indexOf(' ')+1);
 		var first_name_field = document.getElementById("edit_first_name");
 		
 		first_name_field.value = first;
@@ -290,6 +290,7 @@ function display_contacts(f_name, l_name, phone_number, email, id, container_num
 		var phone_number_field = document.getElementById("edit_phone_number");
 		
 		phone_number_field.value = document.getElementById("contact_phone_number"+ id.toString()).childNodes[2].nodeValue;
+		console.log("contact_phone_number"+ id.toString());
 		//first_name_field.setAttribute('id', 'edit_phone_number'+ id.toString());
 	
 		var email_field = document.getElementById("edit_email");
