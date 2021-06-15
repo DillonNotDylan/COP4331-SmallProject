@@ -245,6 +245,16 @@ button:focus {
     box-shadow: 0.25rem 0.25rem 0.75rem #8b8b8b, -0.15rem -0.15rem 0.5rem #ffffff;
 }
 
+.csv_link
+{
+    display: grid;
+    align-items: center; 
+    justify-content: center;
+    text-decoration: none;
+    color: #006eff;
+    margin-top: -1.5rem;
+}
+
 #load:hover
 {
     background: linear-gradient(145deg, #ececec, #ffffff);
