@@ -601,6 +601,7 @@ function createCSV(inpJson)
 	var url = URL.createObjectURL(blob);
 	var link = document.createElement('a');
 	link.setAttribute('download', "contacts.csv");
+	link.setAttribute('class', "csv_link");
 	link.href = url;
 	link.innerText = "Download a copy";
 	bar.appendChild(link);
