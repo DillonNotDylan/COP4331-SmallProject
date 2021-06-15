@@ -70,7 +70,7 @@ function search_contacts()
 					return;
 				}
 				
-				createCSV(jsonObject.results);
+				//createCSV(jsonObject.results);
 				
 				// if ((jsonObject.results.length / 5) < 6)
 				// {
