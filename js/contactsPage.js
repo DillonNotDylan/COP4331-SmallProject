@@ -70,7 +70,7 @@ function search_contacts()
 					return;
 				}
 				
-				//createCSV(jsonObject.results);
+				getAll();
 				
 				// if ((jsonObject.results.length / 5) < 6)
 				// {
@@ -605,4 +605,56 @@ function createCSV(inpJson)
 	link.href = url;
 	link.innerText = "Download a copy";
 	bar.appendChild(link);
+}
+
+function getAll()
+{
+	var search = document.getElementById("first_name_searchbar").value;
+	var jsonPayloadPre = {
+		"userId": userId,
+		"search": search,
+		"limit": 100,
+		"offset": 0
+	};
+	
+	var jsonPayload = JSON.stringify(jsonPayloadPre);
+	
+	//'{"userId" : "' + userId + '", "search" : "' + search + '"}';
+	var url = urlBase + '/SearchContacts.' + extension;
+	// Attempt a connection to the API
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", url, false);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	
+	try
+	{
+		xhr.onreadystatechange = function()
+		{
+			// If we successfully connect, retrieve the information from the APIs query
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				var jsonObject = JSON.parse( xhr.responseText ); // This JSON object is the response from the API
+				
+				searchObject = jsonObject;
+				// offset += limit;
+				console.log("CONTACTS SUCCESSFULLY LOADED...");
+				console.log("UID: " + userId + " | Search: " + search + " | Limit: " + limit + " | Offset: " + offset );
+				console.log(jsonObject.results);
+
+				if (jsonObject.results == undefined) 
+				{
+					if (document.getElementById('search_container').childNodes.length > 3)
+						bar.removeChild(bar.childNodes[3]);
+					return;
+				}
+				createCSV(jsonObject.results);
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("loginResult").innerHTML = err.message;
+	}
+	
 }
