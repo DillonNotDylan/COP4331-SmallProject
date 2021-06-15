@@ -56,9 +56,9 @@
 					<input id="add_last_name" type="text" placeholder=" Last Name ...">
 					<input id="add_phone_number" type="text" placeholder=" Phone Number ...">
 					<input id="add_email" type="text" placeholder=" Email ...">
-					<div class="">
-						<button type="button" onclick="add_contact()" class = "edit_contact_button" id = "edit_contact_button"><span id = "doneicon" class="material-icons md-46">done</span></button>
-						<button type="button" href="javascript:void(0)" class="delete_contact_button" id = "delete_contact_button" onclick="closeNav()"><span id = "doneicon" class="material-icons md-46">cancel</span></a>
+					<div class="edit_buttons">
+						<button type="button" onclick="add_contact()" class = "confirm_edit_button" id = "confirm_edit_button"><span id = "doneicon" class="material-icons md-46">done</span></button>
+						<button type="button" href="javascript:void(0)" class="close_edit_button" id = "close_edit_button" onclick="closeNav()"><span id = "doneicon" class="material-icons md-46">cancel</span></a>
 					</div>
 				</div>
 		</div>
@@ -87,8 +87,8 @@
 		<!-- Search bar and Add Contact button -->
 		<div class="search_container" id="search_container">
 			<div class="searchbars" id="searchbars">
-				<input type="text" placeholder=" search ..." id="first_name_searchbar" />
-				<button class="add_contact_button" type="button" onclick="search_contacts();"><span id = "searchicon" class="material-icons md-46">search</span></button>
+				<button type="button" onclick="edit_contact()" class = "confirm_edit_button" id = "confirm_edit_button"><span id = "doneicon" class="material-icons md-46">done</span></button>
+				<button type="button" href="javascript:void(0)" class="close_edit_button" id = "close_edit_button" onclick="close_edit_page()"><span id = "doneicon" class="material-icons md-46">cancel</span></a>
 			</div>
 		</div>
 		
