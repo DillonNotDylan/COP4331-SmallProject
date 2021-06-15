@@ -246,7 +246,7 @@ function display_contacts(f_name, l_name, phone_number, email, id, container_num
 	var contact_email = document.createElement('h3');
 	contact_email.className = 'contact_email';
 	contact_email.setAttribute('id', 'contact_email'+ id.toString());
-	contact_email.innerHTML = '<span class="material-icons md-36">mail_outline</span>: ';
+	contact_email.innerHTML = '<a href = "mailto:' +email+'"><span class="material-icons md-36">mail_outline</span></a>: ';
 	var contact_address = document.createElement('h3');
 	contact_address.className = 'contact_address';
 	contact_address.setAttribute('id', 'contact_address'+ id.toString());
@@ -423,7 +423,7 @@ function edit_contact()
 					console.log("Editing ContactID: " + contactId.toString()); // for testing
 					document.getElementById('contact_name' + contactId.toString()).innerHTML = first_name + ' ' + last_name;
 					document.getElementById('contact_phone_number' + contactId.toString()).innerHTML = '<span class="material-icons md-36">phone</span>:	' + phone_number;
-					document.getElementById('contact_email' + contactId.toString()).innerHTML = '<span class="material-icons md-36">mail_outline</span>:	' + email;
+					document.getElementById('contact_email' + contactId.toString()).innerHTML = '<a href = "mailto:' +email+ '"><span class="material-icons md-36">mail_outline</span></a>:	' + email;
 					// document.getElementById("edit_index").value =  "";
 					// document.getElementById("edit_first_name").value = "";
 					// document.getElementById("edit_last_name").value = "";
