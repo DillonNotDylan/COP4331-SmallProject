@@ -66,6 +66,11 @@ function search_contacts()
 
 				if (jsonObject.results == undefined) 
 				{
+					const bar = document.getElementById('search_container');
+					// check if node already created, then remove
+					if (bar.childNodes.length > 3)
+						bar.removeChild(bar.childNodes[3]);
+					
 					document.getElementById("load").style.display = "none";
 					return;
 				}
